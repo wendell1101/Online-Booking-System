@@ -1,0 +1,26 @@
+.main-nav {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 10vh;
+    padding: .5rem 2rem;
+    .logo {
+        color: $primaryColor1;
+        font-size: 1.4rem;
+    }
+    ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        li {
+            padding-top: 10px;
+            margin-left: 2rem;
+            a {
+                color: $primaryColor3;
+            }
+        }
+    }
+}
