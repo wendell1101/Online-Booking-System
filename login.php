@@ -8,8 +8,8 @@ if (isset($_POST['login'])) {
     //get the data
     $data = $user->getData();
 
-    $email = $data['email'];
-    $password1 = $data['password1'];
+    $email = sanitize($data['email']);
+    $password1 = sanitize($data['password1']);
 }
 
 ?>
