@@ -5,11 +5,18 @@
     require_once('controllers/Sanitize.php');
     require_once('models/User.php');
 
+    // middlewares
+
+
+
     // start session
     session_start();
 
-    // declare a constant for active user
+    // instantiate user model
     $user = new User();
+    // instantiate middlewares
+
+
 
 
 

@@ -1,4 +1,11 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+
 // extends Connection class
 class UserController extends Connection
 {
@@ -102,7 +109,7 @@ class UserController extends Connection
         } else {
             $password1 = trim($this->data['password1']);
             $password2 = trim($this->data['password2']);
-            if(!empty($password2)){
+            if (!empty($password2)) {
                 if ($password1 !== $password2) {
                     $this->addError('password1', 'Passwords do not match. Please try again');
                 }
@@ -128,9 +135,10 @@ class UserController extends Connection
     }
 
     // validate login password
-    private function validateLoginPassword(){
+    private function validateLoginPassword()
+    {
         $val = trim($this->data['password1']);
-        if(empty($val)){
+        if (empty($val)) {
             $this->addError('password1', 'Password must not be empty');
         }
     }
@@ -160,8 +168,9 @@ class UserController extends Connection
         if ($stmt->rowCount()) {
             $this->errors['email'] = 'Email already exists. Please try a new one';
         } else {
+            $token = bin2hex(random_bytes(7));
             // register user using named params
-            $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)";
+            $sql = "INSERT INTO users (firstname, lastname, email, password, token) VALUES (:firstname, :lastname, :email, :password, :token)";
             $stmt = $this->conn->prepare($sql);
             // hash the password before saving to the database
             $password = md5($this->data['password1']);
@@ -172,26 +181,80 @@ class UserController extends Connection
                 'lastname' => $this->data['lastname'],
                 'email' => $this->data['email'],
                 'password' => $password,
+                'token' => $token,
             ]);
-
-
-
-            // Get the newly registered user
             $lastId = $this->conn->lastInsertId();
-            $sql = "SELECT * FROM users WHERE id=:id";
-            $stmt = $this->conn->prepare($sql);
-            $run = $stmt->execute(['id' => $lastId]);
-            $user = $stmt->fetch();
-
-
             if ($run) {
-                // set session id
-                $_SESSION['id'] = $user->id;
-                $this->redirect('index.php');
+                $this->send_mail($this->data['email'], $token, $lastId);
             }
         }
     }
 
+    // send_verfication email
+
+    private function send_mail($email, $token, $id)
+    {
+        // Load Composer's autoloader
+        require 'vendor/autoload.php';
+        // Instantiation and passing `true` enables exceptions
+        $mail = new PHPMailer();
+        try {
+            $serverName = $_SERVER['SERVER_NAME'];
+            $currentUrl = $serverName . '/projects/booking_system';
+            //Server settings
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'zuperdummy@gmail.com';                     // SMTP username
+            $mail->Password   = 'q1rr560h';                               // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+            //Recipients
+            $mail->setFrom('from@KingsGourmet.com', 'Mailer');
+            $mail->addAddress($email);     // Add a recipient
+
+
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Email Verification';
+            $mail->Body    = "
+                <h2> Your Activation Code</h2>
+                <h3> $token </h3>
+                <h1>OR</h1>
+                <h3><a href='$currentUrl/activation.php?active=$token&id=$id'>$currentUrl/activation.php?active=$token&id=$id </a></h3>
+
+            ";
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $mail->send();
+            $_SESSION['id'] = $id;
+            $_SESSION['message'] = 'An account verification code has been sent to your email';
+            $_SESSION['activate'] = true;
+            $_SESSION['token'] = $token;
+            header('Location: activation.php');
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+
+
+    // activate user if email is verified
+    public function activate($id, $token){
+        $active = 1;
+        $sql = "UPDATE users SET active=:active  WHERE id=:id AND token=:token";
+        $stmt = $this->conn->prepare($sql);
+        $updated = $stmt->execute([
+            'active' => $active,
+            'id' => $id,
+            'token' => $token
+        ]);
+        if($updated){
+            $_SESSION['message'] = 'You are now logged in';
+            header('Location: index.php');
+        }
+    }
 
     // Check if user is registered for login
     private function checkIfRegistered()
@@ -213,15 +276,13 @@ class UserController extends Connection
         // bind and execute
         $stmt->execute(['email' => $email, 'password' => $password]);
         $user = $stmt->fetch();
-        if(!$stmt->rowCount() > 0){
+        if (!$stmt->rowCount() > 0) {
             $this->addError('email', 'Invalid Credentials. An email or password is incorrect. Please try again');
             $this->addError('password1', 'Invalid Credentials. An email or password is incorrect. Please try again');
-
-        }else{
+        } else {
             $_SESSION['id'] = $user->id;
             $this->redirect('index.php');
         }
-
     }
 
     // method to redirect pages

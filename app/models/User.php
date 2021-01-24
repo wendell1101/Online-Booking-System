@@ -2,7 +2,6 @@
 
 class User extends Connection
 {
-    public $user;
 
     public function __construct()
     {
@@ -16,7 +15,7 @@ class User extends Connection
             return false;
         }
     }
-    //I can't reassign $this->user for some reason so I've made an alternative
+
     public function getFullName()
     {
         if (self::Auth()) {
@@ -29,10 +28,13 @@ class User extends Connection
 
     public function getUser()
     {
-        $sql = "SELECT * FROM users WHERE id=:id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $_SESSION['id']]);
-        $user = $stmt->fetch();
-        return $user;
+        if(self::Auth()){
+            $sql = "SELECT * FROM users WHERE id=:id AND active=1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $_SESSION['id']]);
+            $user = $stmt->fetch();
+            return $user;
+        }
+
     }
 }
