@@ -165,6 +165,7 @@ class UserController extends Connection
             $stmt = $this->conn->prepare($sql);
             // hash the password before saving to the database
             $password = md5($this->data['password1']);
+
             // bind param and execute
             $run = $stmt->execute([
                 'firstname' => $this->data['firstname'],
@@ -172,18 +173,20 @@ class UserController extends Connection
                 'email' => $this->data['email'],
                 'password' => $password,
             ]);
+
+
+
             // Get the newly registered user
             $lastId = $this->conn->lastInsertId();
             $sql = "SELECT * FROM users WHERE id=:id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute(['id' => $lastId]);
+            $run = $stmt->execute(['id' => $lastId]);
             $user = $stmt->fetch();
 
-            print_r($user->email);
 
             if ($run) {
-                // set session user
-                $_SESSION['user'] = $user;
+                // set session id
+                $_SESSION['id'] = $user->id;
                 $this->redirect('index.php');
             }
         }
@@ -215,7 +218,7 @@ class UserController extends Connection
             $this->addError('password1', 'Invalid Credentials. An email or password is incorrect. Please try again');
 
         }else{
-            $_SESSION['user'] = $user;
+            $_SESSION['id'] = $user->id;
             $this->redirect('index.php');
         }
 

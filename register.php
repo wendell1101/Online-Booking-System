@@ -1,5 +1,6 @@
 <?php
 require_once('app/core.php');
+require_once('app/middlewares/Guess.php');
 $firstname = $lastname = $email = $password1 = $password2 = $agree = '';
 if (isset($_POST['register'])) {
     // instantiate user validator
@@ -38,8 +39,7 @@ if (isset($_POST['register'])) {
                 <div class="row">
                     <!--firstname-->
                     <div class="col-6">
-                        <input type="text" name="firstname" id="firstname" placeholder="First Name*"
-                        class="form-control
+                        <input type="text" name="firstname" id="firstname" placeholder="First Name*" class="form-control
                             <?php
                             if (!empty(($firstname))) {
                                 echo $errors['firstname'] ? 'is-invalid' : 'is-valid';
@@ -49,16 +49,14 @@ if (isset($_POST['register'])) {
                                 }
                             }
                             ?>
-                        "
-                        value="<?php echo $firstname ?>">
+                        " value="<?php echo $firstname ?>">
                         <div class="text-danger">
                             <small><?php echo $errors['firstname'] ?? '' ?></small>
                         </div>
                     </div>
                     <!--lastname-->
                     <div class="col-6">
-                        <input type="text" name="lastname" id="lastname"
-                        class="form-control
+                        <input type="text" name="lastname" id="lastname" class="form-control
                             <?php
                             if (!empty(($lastname))) {
                                 echo $errors['lastname'] ? 'is-invalid' : 'is-valid';
@@ -68,8 +66,7 @@ if (isset($_POST['register'])) {
                                 }
                             }
                             ?>
-                        "
-                        placeholder="Last Name*" value="<?php echo $lastname ?>">
+                        " placeholder="Last Name*" value="<?php echo $lastname ?>">
                         <div class="text-danger">
                             <small><?php echo $errors['lastname'] ?? '' ?></small>
                         </div>
@@ -77,8 +74,7 @@ if (isset($_POST['register'])) {
                 </div>
                 <!--email-->
                 <div class="form-group mt-2">
-                    <input type="text" name="email" id="email"
-                    class="form-control
+                    <input type="text" name="email" id="email" class="form-control
                         <?php
                         if (!empty(($email))) {
                             echo $errors['email'] ? 'is-invalid' : 'is-valid';
@@ -88,16 +84,14 @@ if (isset($_POST['register'])) {
                             }
                         }
                         ?>
-                    "
-                    placeholder="Enter email*" value="<?php echo $email ?>">
+                    " placeholder="Enter email*" value="<?php echo $email ?>">
                     <div class="text-danger">
                         <small><?php echo $errors['email'] ?? '' ?></small>
                     </div>
                 </div>
                 <!--password1-->
                 <div class="form-group mt-2">
-                    <input type="password" name="password1" id="password1"
-                    class="form-control
+                    <input type="password" name="password1" id="password1" class="form-control
                         <?php
                         if (!empty(($password1))) {
                             echo $errors['password1'] ? 'is-invalid' : 'is-valid';
@@ -107,16 +101,14 @@ if (isset($_POST['register'])) {
                             }
                         }
                         ?>
-                    "
-                    placeholder="Enter password*" value="<?php echo $password1 ?>">
+                    " placeholder="Enter password*" value="<?php echo $password1 ?>">
                     <div class="text-danger">
                         <small><?php echo $errors['password1'] ?? '' ?></small>
                     </div>
                 </div>
                 <!--password2-->
                 <div class="form-group mt-2">
-                    <input type="password" name="password2" id="password2"
-                    class="form-control
+                    <input type="password" name="password2" id="password2" class="form-control
                         <?php
                         if (!empty(($password2))) {
                             echo $errors['password2'] ? 'is-invalid' : 'is-valid';
@@ -126,8 +118,7 @@ if (isset($_POST['register'])) {
                             }
                         }
                         ?>
-                    "
-                    placeholder="Re-enter password*" value="<?php echo $password2 ?>">
+                    " placeholder="Re-enter password*" value="<?php echo $password2 ?>">
                     <div class="text-danger">
                         <small><?php echo $errors['password2'] ?? '' ?></small>
                     </div>

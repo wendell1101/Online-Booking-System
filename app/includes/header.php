@@ -19,7 +19,7 @@
         <ul>
             <?php if (User::Auth()) : ?>
                 <li>
-                    <a href="#"><?php echo User::getFullName() ;?></a>
+                    <a href="#"><?php echo $user->getFullName() ;?></a>
                 </li>
                 <li>
                     <a href="#">Menu</a>

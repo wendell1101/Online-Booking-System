@@ -1,7 +1,8 @@
 <?php
     require_once('app/core.php');
+    require_once('app/middlewares/Auth.php');
     if(User::Auth()){
-        $user = $_SESSION['user'];
+        // print_r($user->getUser());
     }
 
 

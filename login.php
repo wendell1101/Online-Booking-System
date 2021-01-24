@@ -1,5 +1,6 @@
 <?php
 require_once('app/core.php');
+require_once('app/middlewares/Guess.php');
 $email = $password1 = '';
 if (isset($_POST['login'])) {
     // instantiate user validator
@@ -17,7 +18,7 @@ if (isset($_POST['login'])) {
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-5 mx-auto">
-            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
 
                 <h5 class="text-center text-secondary">Login with</h5>
 
@@ -52,14 +53,14 @@ if (isset($_POST['login'])) {
                 <div class="form-group mt-2">
                     <input type="password" name="password1" id="password1" class="form-control
                     <?php
-                        if (!empty($password1)) {
-                            echo $errors['password1'] ? 'is-invalid' : '';
-                        } else {
-                            if ($errors['password1']) {
-                                echo 'is-invalid';
-                            }
+                    if (!empty($password1)) {
+                        echo $errors['password1'] ? 'is-invalid' : '';
+                    } else {
+                        if ($errors['password1']) {
+                            echo 'is-invalid';
                         }
-                        ?>
+                    }
+                    ?>
                     " placeholder="Enter password*">
                     <div class="text-danger">
                         <small><?php echo $errors['password1'] ?? '' ?></small>
