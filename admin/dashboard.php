@@ -3,6 +3,7 @@ ob_start();
 require_once '../path.php';
 require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
+require_once BASE . '/app/middlewares/Auth.php';
 require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
 ?>
 

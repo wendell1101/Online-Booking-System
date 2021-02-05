@@ -15,9 +15,9 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">
-                    Logout
-                </a>
+                <form action="<?php echo BASE . '/logout.php' ?>" method="POST">
+                    <button type="submit" name="logout" style="border:none; background:none; width:100%">Logout</button>
+                </form>
             </div>
         </li>
     </ul>

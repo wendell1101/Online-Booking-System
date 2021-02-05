@@ -103,11 +103,12 @@ class Category extends Connection
     private function updateCategory()
     {
         $name = $this->data['name'];
+        $slug = slugify($name);
         $id = $this->data['id'];
         if (!array_filter($this->errors)) {
-            $sql = "UPDATE categories set name=:name WHERE id=:id";
+            $sql = "UPDATE categories set name=:name, slug=:slug WHERE id=:id";
             $stmt = $this->conn->prepare($sql);
-            $updated = $stmt->execute(['name' => $name, 'id' => $id]);
+            $updated = $stmt->execute(['name' => $name, 'slug' => $slug, 'id' => $id]);
             if ($updated) {
                 message('success', 'A new category has been updated');
                 redirect('categories.php');

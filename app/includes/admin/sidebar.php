@@ -37,8 +37,8 @@
                 </a>
             </li>
             <li class="nav-item menu-open">
-                <a href="" class="nav-link ">
-                    <i class="fas fa-coffee mr-2"></i>
+                <a href="<?php echo BASE_URL . 'admin/products.php' ?>" class=" nav-link ">
+                    <i class=" fas fa-coffee mr-2"></i>
                     <p>
                         Products
                     </p>

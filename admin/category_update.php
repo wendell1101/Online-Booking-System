@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
 <div class="container">
     <div class="card shadow">
         <div class="card-header d-flex align-items-center">
-            <h4>Categories</h4>
+            <h4>Update Category</h4>
         </div>
         <div class="card-body">
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
