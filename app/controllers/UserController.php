@@ -233,7 +233,7 @@ class UserController extends Connection
             $_SESSION['message'] = 'An account verification code has been sent to your email';
             $_SESSION['activate'] = true;
             $_SESSION['token'] = $token;
-            header('Location: activation.php');
+            redirect('activation.php');
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
@@ -241,7 +241,8 @@ class UserController extends Connection
 
 
     // activate user if email is verified
-    public function activate($id, $token){
+    public function activate($id, $token)
+    {
         $active = 1;
         $sql = "UPDATE users SET active=:active  WHERE id=:id AND token=:token";
         $stmt = $this->conn->prepare($sql);
@@ -250,9 +251,9 @@ class UserController extends Connection
             'id' => $id,
             'token' => $token
         ]);
-        if($updated){
-            $_SESSION['message'] = 'You are now logged in';
-            header('Location: index.php');
+        if ($updated) {
+            message('success', 'You are now logged in');
+            redirect('index.php');
         }
     }
 
@@ -281,13 +282,7 @@ class UserController extends Connection
             $this->addError('password1', 'Invalid Credentials. An email or password is incorrect. Please try again');
         } else {
             $_SESSION['id'] = $user->id;
-            $this->redirect('index.php');
+            redirect('index.php');
         }
-    }
-
-    // method to redirect pages
-    public function redirect($address)
-    {
-        return header("Location: $address");
     }
 }

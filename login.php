@@ -1,6 +1,8 @@
 <?php
-require_once('app/core.php');
-require_once('app/middlewares/Guess.php');
+include 'path.php';
+require_once BASE . '/app/core.php';
+require_once BASE . '/app/middlewares/Guess.php';
+
 $email = $password1 = '';
 if (isset($_POST['login'])) {
     // instantiate user validator

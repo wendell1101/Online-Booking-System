@@ -1,5 +1,4 @@
 <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
             <img src="" class="img-circle elevation-2" alt="User Image">
@@ -8,9 +7,6 @@
             <a href="" class="d-block">Wendell Suazo</a>
         </div>
     </div>
-
-
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -33,7 +29,7 @@
                 </a>
             </li>
             <li class="nav-item menu-open">
-                <a href="" class="nav-link ">
+                <a href="<?php echo BASE_URL . 'admin/categories.php' ?>" class="nav-link ">
                     <i class="nav-icon fa fa-list-alt"></i>
                     <p>
                         Categories
@@ -42,9 +38,9 @@
             </li>
             <li class="nav-item menu-open">
                 <a href="" class="nav-link ">
-                    <i class="nav-icon fas fa-newspaper" aria-hidden="true"></i>
+                    <i class="fas fa-coffee mr-2"></i>
                     <p>
-                        Posts
+                        Products
                     </p>
                 </a>
             </li>
@@ -57,14 +53,6 @@
                 </a>
             </li>
 
-            <li class="nav-item menu-open mt-5">
-                <a href="" class="nav-link">
-                    <i class="nav-icon fas fa-newspaper" aria-hidden="true"></i>
-                    <p>
-                        Recycled Posts
-                    </p>
-                </a>
-            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

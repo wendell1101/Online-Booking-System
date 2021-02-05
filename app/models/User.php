@@ -28,13 +28,18 @@ class User extends Connection
 
     public function getUser()
     {
-        if(self::Auth()){
+        if (self::Auth()) {
             $sql = "SELECT * FROM users WHERE id=:id AND active=1";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['id' => $_SESSION['id']]);
             $user = $stmt->fetch();
             return $user;
         }
+    }
 
+    public function isAdmin()
+    {
+        $user = $this->getUser();
+        return $user->is_admin;
     }
 }

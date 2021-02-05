@@ -1,21 +1,21 @@
 <?php
+require_once 'path.php';
 require_once 'app/core.php';
-require_once 'app/middlewares/AccountActivation.php';
+// require_once 'app/middlewares/AccountActivation.php';
 
 
 $errors = ['active' => ''];
 $active = '';
-if(isset($_POST['active'])){
-    if (empty($_POST['active'] )) {
+if (isset($_POST['active'])) {
+    if (empty($_POST['active'])) {
         $errors['active'] = 'Activation code must not be empty';
-    }else{
+    } else {
         $active = htmlspecialchars($_POST['active']);
-        if(isset($_SESSION['token'])){
-            if($active !== $_SESSION['token']){
+        if (isset($_SESSION['token'])) {
+            if ($active !== $_SESSION['token']) {
                 $errors['active'] = 'Activation code is incorrect. Please try again';
             }
         }
-
     }
 }
 if (isset($_GET['active']) || isset($_POST['submit'])) {
@@ -26,7 +26,7 @@ if (isset($_GET['active']) || isset($_POST['submit'])) {
         $id = isset($_POST['id']) ? $_POST['id'] : $_GET['id'];
         $user = new UserController($_POST || $_GET);
         $request = $user->activate($id, $tk);
-        if($request){
+        if ($request) {
             unset($_SESSION['active']);
         }
     }
@@ -56,7 +56,7 @@ if (isset($_GET['active']) || isset($_POST['submit'])) {
         <div class="row">
             <div class="col-md-5 mx-auto">
                 <div class="card">
-                    <?php include 'app/includes/message.php' ?>
+                    <?php include BASE . '/app/includes/message.php' ?>
                     <div class="card-header">
                         Activate your account
                     </div>

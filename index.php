@@ -1,14 +1,18 @@
 <?php
-    require_once('app/core.php');
-    require_once('app/middlewares/Auth.php');
-    $auth = new Auth();
+include "path.php";
+require_once BASE . '/app/core.php';
+require_once BASE . '/app/middlewares/Auth.php';
+$auth = new Auth();
 
-    $auth->restrict();
+$auth->restrict();
 
 
 ?>
-<?php include 'app/includes/header.php'?>
+<?php include 'app/includes/header.php' ?>
 
-<?php include 'app/includes/message.php'?>
+<?php include 'app/includes/message.php' ?>
+<div class="container">
 
-<?php include 'app/includes/footer.php'?>
+</div>
+
+<?php include 'app/includes/footer.php' ?>

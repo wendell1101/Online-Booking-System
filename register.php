@@ -1,6 +1,7 @@
 <?php
-require_once('app/core.php');
-require_once('app/middlewares/Guess.php');
+include 'path.php';
+require_once BASE . '/app/core.php';
+require_once BASE . '/app/middlewares/Guess.php';
 
 $firstname = $lastname = $email = $password1 = $password2 = $agree = '';
 if (isset($_POST['register'])) {
