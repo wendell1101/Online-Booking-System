@@ -1,43 +1,42 @@
 <?php
-include 'path.php';
+ob_start();
+require_once '../path.php';
 require_once BASE . '/app/core.php';
-require_once BASE . '/app/middlewares/Guess.php';
+require_once BASE . '/app/includes/admin/header.php';
+require_once BASE . '/app/middlewares/Auth.php';
+$auth = new Auth();
+require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
 
-$firstname = $lastname = $email = $password1 = $password2 = $agree = '';
-if (isset($_POST['register'])) {
-    // instantiate user validator
-    $user = new UserController($_POST);
-    $errors = $user->validate();
+$adminUser = new AdminUser();
 
+$errors = [];
+$firstname = $lastname = $email = $password1 = $password2 = '';
+if (isset($_POST['create'])) {
+    $adminUser->create($_POST);
+    $errors = $adminUser->validate();
     //get the data
-    $data = $user->getData();
+    $data = $adminUser->getData();
     $firstname = sanitize($data['firstname']);
     $lastname = sanitize($data['lastname']);
     $email = sanitize($data['email']);
     $password1 = sanitize($data['password1']);
     $password2 = sanitize($data['password2']);
-    $agree = sanitize($data['agree']);
 }
 
 
 ?>
-<?php include 'app/includes/header.php' ?>
-<div class="container mt-2">
-    <div class="row">
-        <div class="col-md-5 mx-auto">
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-                <h4 class="pb-3 border-bottom mb-3">Welcome to <span class="text-danger">Kings Gourmet!</span></h4>
-                <h5 class="text-center text-secondary">Register using</h5>
 
-                <a href="#" class="form-group form-control border p-2 text-center google">
-                    <i class="authentication-icon google-icon fab fa-google-plus-g mr-2"></i>
-                    <span>Continue with Google</span>
-                </a>
-                <a href="#" class="form-group form-control border p-2 text-center facebook">
-                    <i class="authentication-icon facebook-icon fab fa-facebook-square mr-2"></i>
-                    <span>Continue with Facebook</span>
-                </a>
-                <h5 class="text-center text-secondary">Or</h5>
+<!-- Main content -->
+
+<!-- Main content -->
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header d-flex align-items-center">
+            <h4>Create User</h4>
+        </div>
+        <div class="card-body">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                 <div class="row">
                     <!--firstname-->
                     <div class="col-6">
@@ -125,20 +124,21 @@ if (isset($_POST['register'])) {
                         <small><?php echo $errors['password2'] ?? '' ?></small>
                     </div>
                 </div>
-                <div class="form-group mt-2">
-                    <input type="checkbox" checked name="agree" id="agree" value="<?php echo $agree ?>" required>
-                    <a>I agree to the Terms and Conditions</a>
-                    <div class="terms text-secondary">
-                        <span class="terms-title">Terms and Condition</span><br>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla eum provident dolor neque. Error atque, sint accusantium nihil dignissimos rem ex dolorum repellendus culpa consequatur ipsam, id omnis eos magnam?
-                    </div>
-                </div>
-                <div class="d-grid mt-2">
-                    <button type="submit" name="register" class="btn btn-danger btn-block">Create Account</button>
+                <div class="form-group d-flex justify-content-end align-items-center mt-2">
+                    <a href="admin_users.php" class="btn btn-secondary mr-2">Cancel</a>
+                    <button type="submit" name="create" class="btn btn-primary">Create</button>
                 </div>
 
             </form>
         </div>
     </div>
 </div>
-<?php include 'app/includes/footer.php' ?>
+<!-- /.content -->
+
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<?php require_once BASE . '/app/includes/admin/footer.php';
+ob_flush();
+?>

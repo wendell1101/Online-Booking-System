@@ -282,7 +282,11 @@ class UserController extends Connection
             $this->addError('password1', 'Invalid Credentials. An email or password is incorrect. Please try again');
         } else {
             $_SESSION['id'] = $user->id;
-            redirect('index.php');
+            if ($user->is_admin === 1 || $user->is_product_manager === 1) {
+                redirect('admin/dashboard.php');
+            } else {
+                redirect('index.php');
+            }
         }
     }
 }

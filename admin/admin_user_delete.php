@@ -5,17 +5,17 @@ require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
-require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
+require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
 
-$product = new Product();
+$adminUser = new AdminUser();
 
 
 if (isset($_POST['id'])) {
     $id = sanitize($_POST['id']);
-    $activeProduct = $product->getProduct($id);
+    $activeUser = $adminUser->getUser($id);
 }
 if (isset($_POST['delete'])) {
-    $product->delete($_POST['id']);
+    $adminUser->delete($_POST['id']);
 }
 
 
@@ -32,10 +32,10 @@ if (isset($_POST['delete'])) {
         <div class="card-body">
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                 <div class="form-group">
-                    <h1>Are you sure you want to delete <?php echo $activeProduct->name ?>?</h1>
+                    <h1>Are you sure you want to delete <?php echo $activeUser->firstname . ' ' . $activeUser->lastname ?>?</h1>
                     <div class="form-group d-flex justify-content-end align-items-center mt-2">
-                        <input type="hidden" name="id" value="<?php echo $activeProduct->id ?>">
-                        <a href="products.php" class="btn btn-secondary mr-2">Cancel</a>
+                        <input type="hidden" name="id" value="<?php echo $activeUser->id ?>">
+                        <a href="admin_users.php" class="btn btn-secondary mr-2">Cancel</a>
                         <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                     </div>
 

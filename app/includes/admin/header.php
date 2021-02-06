@@ -19,6 +19,7 @@
 
     <!-- summernote -->
     <link rel="stylesheet" href="../assets/admin/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../assets/admin/css/admin.css">
 </head>
 
 

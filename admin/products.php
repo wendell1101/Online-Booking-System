@@ -1,9 +1,11 @@
 <?php
+ob_start();
 require_once '../path.php';
 require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
-require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
+$auth = new Auth();
+require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $product = new Product();
 $products = $product->index();
@@ -76,3 +78,4 @@ $products = $product->index();
 <!-- /.content-wrapper -->
 
 <?php require_once BASE . '/app/includes/admin/footer.php' ?>
+<?php echo ob_flush() ?>

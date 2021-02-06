@@ -3,7 +3,10 @@ ob_start();
 require_once '../path.php';
 require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
-require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
+require_once BASE . '/app/middlewares/Auth.php';
+$auth = new Auth();
+require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
+
 
 $product = new Product();
 $categories = $product->getCategories();

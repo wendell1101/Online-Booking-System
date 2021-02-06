@@ -4,7 +4,7 @@
             <img src="" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="" class="d-block">Wendell Suazo</a>
+            <a href="" class="d-block"><?php echo $user->getFullName() ?></a>
         </div>
     </div>
     <!-- Sidebar Menu -->
@@ -12,23 +12,29 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
-                <a href="/admin" class="nav-link">
+            <li class="nav-item menu-open
+                <?php echo (strpos(CURRENT_URL, 'dashboard') !== false) ? 'active' : '' ?>
+                ">
+                <a href="<?php echo BASE_URL . '/admin/dashboard.php' ?>" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
                     </p>
                 </a>
             </li>
-            <li class="nav-item menu-open">
-                <a href="" class="nav-link">
+            <li class="nav-item menu-open
+            <?php echo (strpos(CURRENT_URL, 'admin_users') !== false) ? 'active' : '' ?>
+            ">
+                <a href="<?php echo BASE_URL . 'admin/admin_users.php' ?>" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                         Users
                     </p>
                 </a>
             </li>
-            <li class="nav-item menu-open">
+            <li class="nav-item menu-open
+            <?php echo (strpos(CURRENT_URL, 'categories') !== false) ? 'active' : '' ?>
+            ">
                 <a href="<?php echo BASE_URL . 'admin/categories.php' ?>" class="nav-link ">
                     <i class="nav-icon fa fa-list-alt"></i>
                     <p>
@@ -36,7 +42,9 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item menu-open">
+            <li class="nav-item menu-open
+            <?php echo (strpos(CURRENT_URL, 'products') !== false) ? 'active' : '' ?>
+            ">
                 <a href="<?php echo BASE_URL . 'admin/products.php' ?>" class=" nav-link ">
                     <i class=" fas fa-coffee mr-2"></i>
                     <p>
@@ -44,11 +52,13 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item menu-open">
-                <a href="" class="nav-link">
+            <li class="nav-item menu-open
+            <?php echo (strpos(CURRENT_URL, 'reservations') !== false) ? 'active' : '' ?>
+            ">
+                <a href="<?php echo BASE_URL . 'admin/reservations.php' ?>" class="nav-link">
                     <i class="nav-icon fas fa-tags"></i>
                     <p>
-                        Tags
+                        Reservations
                     </p>
                 </a>
             </li>

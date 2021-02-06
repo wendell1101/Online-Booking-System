@@ -39,7 +39,31 @@ class User extends Connection
 
     public function isAdmin()
     {
-        $user = $this->getUser();
-        return $user->is_admin;
+        if (self::Auth()) {
+            $user = $this->getUser();
+            return $user->is_admin;
+        }
+    }
+
+    public function isProductManager()
+    {
+        if (self::Auth()) {
+            $user = $this->getUser();
+            return $user->is_product_manager;
+        }
+    }
+
+    public function getRole()
+    {
+        if (self::Auth()) {
+            $user = $this->getUser();
+            if ($user->is_admin === 1) {
+                return 'admin';
+            } else if ($user->is_product_manager === 1) {
+                return 'product_manager';
+            } else {
+                return 'customer';
+            }
+        }
     }
 }

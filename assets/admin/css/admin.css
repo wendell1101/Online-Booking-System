@@ -1,0 +1,20 @@
+.sidebar {
+  background: rgb(73, 46, 10);
+}
+.btn-primary {
+  background-color: rgb(73, 46, 10) !important;
+  border-color: rgb(73, 46, 10) !important;
+}
+.bg-primary {
+  background-color: rgb(73, 46, 10) !important;
+}
+.main-sidebar {
+  background-color: rgb(73, 46, 10) !important;
+}
+.menu-open {
+  margin-bottom: 1px !important;
+}
+.active {
+  background: #f8961e;
+  border-radius: 5px;
+}
