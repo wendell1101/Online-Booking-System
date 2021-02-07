@@ -1,16 +1,16 @@
-$primaryColor1: #D90429;
-$primaryColor2: #EF233C;
-$primaryColor3: #2B2D42;
-$primaryColor4: #8D99AE;
-$primaryColor5: #EDF2F4;
+$primaryColor1: #503d35;
+$primaryColor2: #78644e;
+$primaryColor3: #0a0a0a;
+$primaryColor4: #bba690;
+$primaryColor5: #3f240d;
 
 /* texts */
 
 // override some bootstrap text-classes //
 .text-danger {
-    color: $primaryColor1!important;
+  color: $primaryColor1 !important;
 }
 
 .text-secondary {
-    color: #5a5959!important;
+  color: #5a5959 !important;
 }

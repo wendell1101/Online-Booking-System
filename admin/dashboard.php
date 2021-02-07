@@ -4,6 +4,7 @@ require_once '../path.php';
 require_once BASE . '/app/core.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
+$auth->restrict();
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 

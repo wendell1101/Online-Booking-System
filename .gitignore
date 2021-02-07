@@ -1,4 +1,8 @@
 /documentation
+/protype.xd
+/cafe.xd
+/node_modules
+/prototype
 ##### Windows
 # Windows thumbnail cache files
 Thumbs.db
@@ -473,3 +477,4 @@ composer.lock
 *.css.map
 *.sass.map
 *.scss.map
+node_modules
