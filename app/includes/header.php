@@ -26,15 +26,13 @@
             <a href="index.php" class="logo"><img src="assets/img/logo2_dark.png" alt="logo"></a>
         <?php endif; ?>
         <ul>
-            <?php if (User::Auth()) : ?>
-
-                <li class="<?php echo (strpos(CURRENT_URL, 'index') !== false) ? 'active-home' : '' ?>">
-                    <a href=" index.php">Home</a>
-                </li>
-                <li class="<?php echo (strpos(CURRENT_URL, 'about') !== false) ? 'active' : '' ?>">
-                    <a href="about.php">About</a>
-                </li>
-                <li class="
+            <li class="<?php echo (strpos(CURRENT_URL, 'index') !== false) ? 'active-home' : '' ?>">
+                <a href=" index.php">Home</a>
+            </li>
+            <li class="<?php echo (strpos(CURRENT_URL, 'about') !== false) ? 'active' : '' ?>">
+                <a href="about.php">About</a>
+            </li>
+            <li class="
                 <?php if (strpos(CURRENT_URL, 'menu') !== false) : ?>
                     active
                 <?php elseif (strpos(CURRENT_URL, 'pastries') !== false) : ?>
@@ -43,23 +41,11 @@
                     active
                 <?php endif ?>
                 ">
-                    <a href="menu.php">Menu</a>
-                </li>
-                <li class="<?php echo (strpos(CURRENT_URL, 'contact') !== false) ? 'active' : '' ?>">
-                    <a href="contact.php">Contact</a>
-                </li>
-                <li>
-                    <a href="#">Logout</a>
-                </li>
-            <?php else : ?>
-                <li>
-                    <a href="login.php">Login</a>
-                </li>
-                <li>
-                    <a href="register.php">Register</a>
-                </li>
-            <?php endif; ?>
-
+                <a href="menu.php">Menu</a>
+            </li>
+            <li class="<?php echo (strpos(CURRENT_URL, 'contact') !== false) ? 'active' : '' ?>">
+                <a href="contact.php">Contact</a>
+            </li>
         </ul>
         <?php if (strpos(CURRENT_URL, 'about') !== false) : ?>
             <span class="hamburger"><i class="fas fa-bars"></i></span>

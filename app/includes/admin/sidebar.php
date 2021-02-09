@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="" class="img-circle elevation-2" alt="User Image">
+            <img src="https://ui-avatars.com/api/?name=<?php echo $user->getFullName() ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
             <a href="" class="d-block"><?php echo $user->getFullName() ?></a>
@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="nav-item menu-open
-            <?php echo (strpos(CURRENT_URL, 'reservations') !== false) ? 'active' : '' ?>
+            <?php echo (strpos(CURRENT_URL, 'reservation') !== false) ? 'active' : '' ?>
             ">
                 <a href="<?php echo BASE_URL . 'admin/reservations.php' ?>" class="nav-link">
                     <i class="nav-icon fas fa-tags"></i>

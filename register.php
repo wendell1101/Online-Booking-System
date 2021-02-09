@@ -21,27 +21,38 @@ if (isset($_POST['register'])) {
 
 
 ?>
-<?php include 'app/includes/header.php' ?>
-<div class="container mt-2">
-    <div class="row">
-        <div class="col-md-5 mx-auto">
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-                <h4 class="pb-3 border-bottom mb-3">Welcome to <span class="text-danger">Kings Gourmet!</span></h4>
-                <h5 class="text-center text-secondary">Register using</h5>
+<!DOCTYPE html>
+<html lang="en">
 
-                <a href="#" class="form-group form-control border p-2 text-center google">
-                    <i class="authentication-icon google-icon fab fa-google-plus-g mr-2"></i>
-                    <span>Continue with Google</span>
-                </a>
-                <a href="#" class="form-group form-control border p-2 text-center facebook">
-                    <i class="authentication-icon facebook-icon fab fa-facebook-square mr-2"></i>
-                    <span>Continue with Facebook</span>
-                </a>
-                <h5 class="text-center text-secondary">Or</h5>
-                <div class="row">
-                    <!--firstname-->
-                    <div class="col-6">
-                        <input type="text" name="firstname" id="firstname" placeholder="First Name*" class="form-control
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo TITLE ?></title>
+    <!--fontawesome5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--custom css -->
+    <!--flatpckr -->
+    <link rel="stylesheet" href="node_modules/flatpickr/dist/flatpickr.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
+    <!--custom css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/sub-main.css">
+</head>
+
+<body style="background: #3f240d">
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-5 mx-auto shadow p-3 bg-white register">
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <h4 class="pb-3 border-bottom mb-3">Register Now! <a href="index.php" class="text-primary">Coffee Royale</a></h4>
+
+                    <div class="row">
+                        <!--firstname-->
+                        <div class="col-6">
+                            <input type="text" name="firstname" id="firstname" placeholder="First Name*" class="form-control
                             <?php
                             if (!empty(($firstname))) {
                                 echo $errors['firstname'] ? 'is-invalid' : 'is-valid';
@@ -52,13 +63,13 @@ if (isset($_POST['register'])) {
                             }
                             ?>
                         " value="<?php echo $firstname ?>">
-                        <div class="text-danger">
-                            <small><?php echo $errors['firstname'] ?? '' ?></small>
+                            <div class="text-danger">
+                                <small><?php echo $errors['firstname'] ?? '' ?></small>
+                            </div>
                         </div>
-                    </div>
-                    <!--lastname-->
-                    <div class="col-6">
-                        <input type="text" name="lastname" id="lastname" class="form-control
+                        <!--lastname-->
+                        <div class="col-6">
+                            <input type="text" name="lastname" id="lastname" class="form-control
                             <?php
                             if (!empty(($lastname))) {
                                 echo $errors['lastname'] ? 'is-invalid' : 'is-valid';
@@ -69,14 +80,14 @@ if (isset($_POST['register'])) {
                             }
                             ?>
                         " placeholder="Last Name*" value="<?php echo $lastname ?>">
-                        <div class="text-danger">
-                            <small><?php echo $errors['lastname'] ?? '' ?></small>
+                            <div class="text-danger">
+                                <small><?php echo $errors['lastname'] ?? '' ?></small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--email-->
-                <div class="form-group mt-2">
-                    <input type="text" name="email" id="email" class="form-control
+                    <!--email-->
+                    <div class="form-group mt-2">
+                        <input type="text" name="email" id="email" class="form-control
                         <?php
                         if (!empty(($email))) {
                             echo $errors['email'] ? 'is-invalid' : 'is-valid';
@@ -87,13 +98,13 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                     " placeholder="Enter email*" value="<?php echo $email ?>">
-                    <div class="text-danger">
-                        <small><?php echo $errors['email'] ?? '' ?></small>
+                        <div class="text-danger">
+                            <small><?php echo $errors['email'] ?? '' ?></small>
+                        </div>
                     </div>
-                </div>
-                <!--password1-->
-                <div class="form-group mt-2">
-                    <input type="password" name="password1" id="password1" class="form-control
+                    <!--password1-->
+                    <div class="form-group mt-2">
+                        <input type="password" name="password1" id="password1" class="form-control
                         <?php
                         if (!empty(($password1))) {
                             echo $errors['password1'] ? 'is-invalid' : 'is-valid';
@@ -104,13 +115,13 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                     " placeholder="Enter password*" value="<?php echo $password1 ?>">
-                    <div class="text-danger">
-                        <small><?php echo $errors['password1'] ?? '' ?></small>
+                        <div class="text-danger">
+                            <small><?php echo $errors['password1'] ?? '' ?></small>
+                        </div>
                     </div>
-                </div>
-                <!--password2-->
-                <div class="form-group mt-2">
-                    <input type="password" name="password2" id="password2" class="form-control
+                    <!--password2-->
+                    <div class="form-group mt-2">
+                        <input type="password" name="password2" id="password2" class="form-control
                         <?php
                         if (!empty(($password2))) {
                             echo $errors['password2'] ? 'is-invalid' : 'is-valid';
@@ -121,24 +132,30 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                     " placeholder="Re-enter password*" value="<?php echo $password2 ?>">
-                    <div class="text-danger">
-                        <small><?php echo $errors['password2'] ?? '' ?></small>
+                        <div class="text-danger">
+                            <small><?php echo $errors['password2'] ?? '' ?></small>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group mt-2">
-                    <input type="checkbox" checked name="agree" id="agree" value="<?php echo $agree ?>" required>
-                    <a>I agree to the Terms and Conditions</a>
-                    <div class="terms text-secondary">
-                        <span class="terms-title">Terms and Condition</span><br>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla eum provident dolor neque. Error atque, sint accusantium nihil dignissimos rem ex dolorum repellendus culpa consequatur ipsam, id omnis eos magnam?
-                    </div>
-                </div>
-                <div class="d-grid mt-2">
-                    <button type="submit" name="register" class="btn btn-danger btn-block">Create Account</button>
-                </div>
 
-            </form>
+                    <div class="form-group mt-2">
+                        <input type="checkbox" checked name="agree" id="agree" value="<?php echo $agree ?>" required>
+                        <a>I agree to the Terms and Conditions</a>
+                        <div class="terms text-secondary">
+                            <span class="terms-title">Terms and Condition</span><br>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla eum provident dolor neque. Error atque, sint accusantium nihil dignissimos rem ex dolorum repellendus culpa consequatur ipsam, id omnis eos magnam?
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span>Already a user ? <a href="login.php">Login here</a></span>
+                    </div>
+                    <div class="d-grid mt-2">
+                        <button type="submit" name="register" class="btn btn-primary btn-block">Create Account</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<?php include 'app/includes/footer.php' ?>
+</body>
+
+</html>

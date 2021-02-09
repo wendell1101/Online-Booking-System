@@ -35,8 +35,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="../index.php" class="brand-link d-flex align-items-center">
-                <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light"><img src="" alt="logo" style="height:60px"></span>
+                <img src="../assets/img/logo2_light.png" alt="Coffe Royale" class="brand-image">
+                <span class="brand-text">Coffee Royale</span>
             </a>
             <?php include 'sidebar.php' ?>
             <!-- /.sidebar -->

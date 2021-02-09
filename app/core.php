@@ -8,6 +8,7 @@ require_once('controllers/admin/CategoryController.php');
 require_once('controllers/admin/ProductController.php');
 require_once('controllers/admin/UserController.php');
 require_once('controllers/admin/DashboardController.php');
+require_once('controllers/admin/ReservationController.php');
 require_once('models/User.php');
 require_once('helpers/kernel.php');
 

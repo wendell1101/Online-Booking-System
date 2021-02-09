@@ -61,13 +61,15 @@ class Reservation extends Connection
         if (!array_filter($this->errors)) {
             $date_time = sanitize($this->data['date_time']);
             $no_of_people = sanitize($this->data['no_of_people']);
+            $transaction_id = bin2hex(random_bytes(7));
             if (isset($_SESSION['id'])) {
                 $id = $_SESSION['id'];
-                $sql = "INSERT INTO reservations(date_time, no_of_people, user_id)
-                VALUES (:date_time, :no_of_people, :user_id)";
+                $sql = "INSERT INTO reservations(transaction_id, date_time, no_of_people, user_id)
+                VALUES (:transaction_id, :date_time, :no_of_people, :user_id)";
                 $stmt = $this->conn->prepare($sql);
 
                 $inserted = $stmt->execute([
+                    'transaction_id' => $transaction_id,
                     'date_time' => $date_time,
                     'no_of_people' => $no_of_people,
                     'user_id' => $id,

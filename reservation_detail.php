@@ -30,13 +30,13 @@ echo "<h1>Reservation detail</h1>";
     <div class="container" style="margin-top:100px; margin-bottom:100px">
         <article class="card shadow">
             <div class="card-body">
-                <h6>Transaction Id: AABHSJDHS</h6>
+                <h6>Transaction Id: <?php echo $reservation->transaction_id?></h6>
                 <article class="card">
                     <div class="card-body row">
                         <div class="col"> <strong>Reserved By:</strong> <br><?php echo $user->firstname . ' ' . $user->lastname ?></div>
                         <div class="col"> <strong>Email:</strong> <br><?php echo $user->email ?><i class="fa fa-phone"></i> +63998234823 </div>
                         <div class="col text-uppercase"> <strong>Status:</strong> <br> <?php echo $reservation->status ?> </div>
-                        <div class="col"> <strong>Transaction Id #:</strong> <br> ABSDSAJDAK</div>
+                        <div class="col"> <strong>Transaction Id #:</strong> <br> <?php echo $reservation->transaction_id?></div>
                     </div>
                 </article>
                 <div class="track">

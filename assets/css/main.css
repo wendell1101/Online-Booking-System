@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 /* texts */
-.text-danger {
+.btn-primary {
+  color: #fff !important;
+  background: #78644e;
+}
+
+.text-primary {
   color: #503d35 !important;
 }
 
@@ -449,6 +454,23 @@ footer .logo {
   font-size: 1.5rem;
 }
 
+.register {
+  margin-top: 100px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background: #fff;
+  width: 500px;
+}
+
 /*Media Queries*/
 @media (max-width: 786px) {
   .main-nav {
@@ -475,7 +497,7 @@ footer .logo {
     z-index: 100;
   }
   .place-title {
-    margin-top: 100px;
+    margin-top: 120px;
   }
   .menu .text-title {
     font-size: 2rem;

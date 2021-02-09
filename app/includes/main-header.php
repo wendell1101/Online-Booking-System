@@ -22,43 +22,9 @@
     <nav class="main-nav">
         <a href="index.php" class="logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
         <ul>
-            <?php if (User::Auth()) : ?>
 
-                <li class="active-home">
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="about.php">About</a>
-                </li>
-                <li>
-                    <a href="menu.php">Menu</a>
-                </li>
-                <li>
-                    <a href="contact.php">Contact</a>
-                </li>
-                <li>
-                    <form action="logout.php" method="POST">
-                        <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
-                    </form>
-                </li>
-            <?php else : ?>
-                <li>
-                    <a href="login.php">Login</a>
-                </li>
-                <li>
-                    <a href="register.php">Register</a>
-                </li>
-            <?php endif; ?>
-
-        </ul>
-
-        <span class="hamburger"><i class="fas fa-bars"></i></span>
-    </nav>
-    <ul class="side-nav">
-        <?php if (User::Auth()) : ?>
-            <a href="index.php" class="side-nav-logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
-            <li class="active">
-                <a href="index.php">Home</a>
+            <li class="active-home">
+                <a href="#">Home</a>
             </li>
             <li>
                 <a href="about.php">About</a>
@@ -74,12 +40,28 @@
                     <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
                 </form>
             </li>
-        <?php else : ?>
-            <li>
-                <a href="login.php">Login</a>
-            </li>
-            <li>
-                <a href="register.php">Register</a>
-            </li>
-        <?php endif; ?>
+        </ul>
+
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+    </nav>
+    <ul class="side-nav">
+
+        <a href="index.php" class="side-nav-logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
+        <li class="active">
+            <a href="index.php">Home</a>
+        </li>
+        <li>
+            <a href="about.php">About</a>
+        </li>
+        <li>
+            <a href="menu.php">Menu</a>
+        </li>
+        <li>
+            <a href="contact.php">Contact</a>
+        </li>
+        <li>
+            <form action="logout.php" method="POST">
+                <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
+            </form>
+        </li>
     </ul>

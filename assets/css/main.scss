@@ -157,6 +157,20 @@ footer {
 /*authentication*/
 
 @import "components/authentication";
+.register {
+  margin-top: 100px;
+  border-radius: 20px;
+  background: #fff;
+}
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background: #fff;
+  width: 500px;
+}
 
 /*Media Queries*/
 
@@ -183,7 +197,7 @@ footer {
     z-index: 100;
   }
   .place-title {
-    margin-top: 100px;
+    margin-top: 120px;
   }
   .menu {
     .text-title {

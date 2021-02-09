@@ -2,8 +2,7 @@
 require "path.php";
 require_once BASE . '/app/core.php';
 require_once BASE . '/app/middlewares/Auth.php';
-$auth = new Auth();
-$auth->restrict();
+
 
 $reservation = new Reservation();
 
@@ -37,7 +36,7 @@ if (isset($_POST['reserve'])) {
                 <div class="row">
                     <div class="col-md-8">
                         <img src="assets/img/place1.jpg" alt="place image" class="place-image mb-2">
-                        <a href="" class="btn place-btn float-right mb-2">View More</a>
+                        <a href="about.php" class="btn place-btn float-right mb-2">More Info</a>
                     </div>
                     <div class="col-md-4 pl-2 ">
                         <img src="assets/img/place2.jpg" alt="place image" class="place-image mb-2">
@@ -85,7 +84,7 @@ if (isset($_POST['reserve'])) {
                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                         <div class="form-group">
                             <label for="date_time">Choose your desired date and time</label>
-                            <input type="text" name="date_time" id="date_time" class="form-control">
+                            <input type="text" name="date_time" id="date_time" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="no_of_people">Choose number of people</label>

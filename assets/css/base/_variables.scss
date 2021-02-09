@@ -7,7 +7,11 @@ $primaryColor5: #3f240d;
 /* texts */
 
 // override some bootstrap text-classes //
-.text-danger {
+.btn-primary {
+  color: #fff !important;
+  background: $primaryColor2;
+}
+.text-primary {
   color: $primaryColor1 !important;
 }
 

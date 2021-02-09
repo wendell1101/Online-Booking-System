@@ -1,5 +1,10 @@
 /* texts */
-.text-danger {
+.btn-primary {
+  color: #fff !important;
+  background: #78644e;
+}
+
+.text-primary {
   color: #503d35 !important;
 }
 
