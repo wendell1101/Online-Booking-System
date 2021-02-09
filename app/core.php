@@ -2,6 +2,8 @@
 require_once('database/Database.php');
 require('config/Config.php');
 require_once('controllers/UserController.php');
+require_once('controllers/ReservationController.php');
+require_once('controllers/ProductController.php');
 require_once('controllers/admin/CategoryController.php');
 require_once('controllers/admin/ProductController.php');
 require_once('controllers/admin/UserController.php');

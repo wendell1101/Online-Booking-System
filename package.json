@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "admin-lte": "^3.1.0-rc"
+    "admin-lte": "^3.1.0-rc",
+    "flatpickr": "^4.6.9"
   }
 }

@@ -1,5 +1,11 @@
 .super-text {
   color: #fff;
-  font-size: 60px;
+  font-size: 65px;
   letter-spacing: 0.3rem;
+}
+.text-title {
+  margin: 0 auto;
+  color: $primaryColor3;
+  width: 300px;
+  border-bottom: 2px solid $primaryColor2;
 }

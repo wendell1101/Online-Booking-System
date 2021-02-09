@@ -1,4 +1,10 @@
 // override some bootstrap text-classes //
-.btn-danger {
-    background: $primaryColor1;
+.btn {
+  border: 2px solid $primaryColor3;
+  transition: 0.3s ease-in-out;
+}
+.btn:hover {
+  background: $primaryColor1;
+  color: #fff;
+  border-color: $primaryColor5;
 }
