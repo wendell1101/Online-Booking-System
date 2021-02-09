@@ -39,7 +39,7 @@
                         <p>Products</p>
                     </div>
                     <div class="icon">
-                        <i class="fas fa-newspaper"></i>
+                        <i class=" fas fa-coffee mr-2"></i>
                     </div>
                     <a href="products.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -49,12 +49,12 @@
                 <!-- small box -->
                 <div class="small-box bg-secondary">
                     <div class="inner">
-                        <h3>5</h3>
+                        <h3><?php echo $dashboard->getReservationsCount(); ?></h3>
 
                         <p>Reservations</p>
                     </div>
                     <div class="icon">
-                        <i class="fas fa-tags"></i>
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <a href="reservations.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>

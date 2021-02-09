@@ -173,8 +173,7 @@ footer {
 }
 
 /*Media Queries*/
-
-@media (max-width: 786px) {
+@media (max-width: 900px) {
   .main-nav {
     justify-content: space-between;
   }
@@ -184,6 +183,11 @@ footer {
   .hamburger {
     display: block;
   }
+  .about-hamburger {
+    color: $primaryColor3 !important;
+  }
+}
+@media (max-width: 786px) {
   .hero-right h1 {
     text-align: center;
     font-size: 60px;
@@ -229,6 +233,9 @@ footer {
     font-size: 1.5rem;
     width: 300px;
     text-align: center;
+  }
+  .about-hamburger {
+    color: #fff !important;
   }
 }
 @media (max-width: 400px) {

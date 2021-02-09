@@ -36,10 +36,27 @@
                 <a href="contact.php">Contact</a>
             </li>
             <li>
-                <form action="logout.php" method="POST">
-                    <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
-                </form>
+                <a href="reservations.php">Reservations</a>
             </li>
+            <?php if (User::Auth()) : ?>
+                <?php if ($user->isAdmin()) : ?>
+                    <li>
+                        <a href="admin/dashboard.php">Admin</a>
+                    </li>
+                <?php endif ?>
+                <li>
+                    <form action="logout.php" method="POST">
+                        <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
+                    </form>
+                </li>
+            <?php else : ?>
+                <li>
+                    <a href="login.php">Login</a>
+                </li>
+                <li>
+                    <a href="register.php">Register</a>
+                </li>
+            <?php endif ?>
         </ul>
 
         <span class="hamburger"><i class="fas fa-bars"></i></span>
@@ -59,9 +76,26 @@
         <li>
             <a href="contact.php">Contact</a>
         </li>
-        <li>
-            <form action="logout.php" method="POST">
-                <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
-            </form>
+        <li class="<?php echo (strpos(CURRENT_URL, 'reservation') !== false) ? 'active' : '' ?>">
+            <a href="reservations.php">Reservations</a>
         </li>
+        <?php if (User::Auth()) : ?>
+            <?php if ($user->isAdmin()) : ?>
+                <li>
+                    <a href="admin/dashboard.php">Admin</a>
+                </li>
+            <?php endif; ?>
+            <li>
+                <form action="logout.php" method="POST">
+                    <button type="submit" class="text-white" name="logout" style="border:none; background:none; width:100%">Logout</button>
+                </form>
+            </li>
+        <?php else : ?>
+            <li>
+                <a href="login.php">Login</a>
+            </li>
+            <li>
+                <a href="register.php">Register</a>
+            </li>
+        <?php endif ?>
     </ul>

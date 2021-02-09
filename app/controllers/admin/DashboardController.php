@@ -20,4 +20,9 @@ class Dashboard extends Connection
         $stmt = $this->conn->query("SELECT * FROM products");
         return $stmt->rowCount();
     }
+    public function getReservationsCount()
+    {
+        $stmt = $this->conn->query("SELECT * FROM reservations");
+        return $stmt->rowCount();
+    }
 }

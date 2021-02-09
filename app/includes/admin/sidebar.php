@@ -56,7 +56,7 @@
             <?php echo (strpos(CURRENT_URL, 'reservation') !== false) ? 'active' : '' ?>
             ">
                 <a href="<?php echo BASE_URL . 'admin/reservations.php' ?>" class="nav-link">
-                    <i class="nav-icon fas fa-tags"></i>
+                    <i class="far fa-calendar-check"></i>
                     <p>
                         Reservations
                     </p>

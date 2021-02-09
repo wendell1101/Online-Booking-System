@@ -8,7 +8,7 @@ class Auth extends Connection
     public function restrict()
     {
         if (!isset($_SESSION['id'])) {
-            header('Location: login.php');
+            header('Location: ../login.php');
             exit();
         } else {
             $id = $_SESSION['id'];

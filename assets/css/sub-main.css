@@ -195,6 +195,12 @@
   padding: 100px 0;
 }
 
+/*reservations*/
+.reservations {
+  min-height: 90vh;
+  overflow-x: hidden;
+}
+
 /*Media Queries*/
 @media (max-width: 786px) {
   .about-text {

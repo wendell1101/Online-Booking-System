@@ -10,6 +10,16 @@ class Reservation extends Connection
         parent::__construct();
     }
 
+    public function index()
+    {
+        if (isset($_SESSION['id'])) {
+            $sql = "SELECT * from reservations WHERE user_id=:id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $_SESSION['id']]);
+            $reservations = $stmt->fetchAll();
+            return $reservations;
+        }
+    }
     public function reserve($data)
     {
         $this->data = $data;
@@ -75,11 +85,12 @@ class Reservation extends Connection
                     'user_id' => $id,
                 ]);
                 $lastId = $this->conn->lastInsertId();
+                $user = $this->getUser($lastId);
                 $reservation = $this->getReservation($lastId);
                 if ($inserted) {
                     $_SESSION['reservation'] = $reservation;
                     message('success', 'Your reservation is now being processed');
-                    redirect('reservation_detail.php');
+                    redirect("reservation_detail.php?id=$reservation->id&user_id=$reservation->user_id");
                 }
             }
         }
