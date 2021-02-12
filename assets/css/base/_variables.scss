@@ -11,6 +11,11 @@ $primaryColor5: #3f240d;
   color: #fff !important;
   background: $primaryColor2;
 }
+.btn-primary:focus {
+  border: 2px solid $primaryColor3 !important;
+  color: #fff !important;
+  background: $primaryColor2;
+}
 .text-primary {
   color: $primaryColor1 !important;
 }

@@ -5,6 +5,7 @@ require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
 $auth->restrict();
 
+
 $reservation = new Reservation();
 
 $reservations = $reservation->index();

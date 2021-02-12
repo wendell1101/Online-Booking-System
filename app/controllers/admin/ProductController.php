@@ -82,17 +82,17 @@ class Product extends Connection
     // validate product image
     private function validateProductImage()
     {
+        if (empty($_FILES['image']['name'])) {
+            $this->addError('image', 'Product image should not be empty');
+        }
+    }
+    private function moveFile()
+    {
         if (!empty($_FILES['image']['name'])) {
             $imageName = time() . "_" . $_FILES['image']['name'];
             $tmpDestination = $_FILES['image']['tmp_name'];
             $imageDestination = BASE . "/assets/img/product_images/" . $imageName;
             $result = move_uploaded_file($tmpDestination, $imageDestination);
-
-            if (!$result) {
-                $this->addError('image', 'Image upload Failed');
-            }
-        } else {
-            $this->addError('image', 'Product image should not be empty');
         }
     }
     // validate category
@@ -142,6 +142,7 @@ class Product extends Connection
                 'category_id' => $category_id,
             ]);
             if ($run) {
+                $this->moveFile();
                 message('success', 'A new product has been created');
                 redirect('products.php');
             }
@@ -156,7 +157,10 @@ class Product extends Connection
         $stmt = $this->conn->prepare($sql);
         $deleted = $stmt->execute(['id' => $id]);
         // also delete the image in the product images folder
-        unlink(BASE . '/assets/img/product_images/' . $product->image);
+        if (file_exists(BASE . '/assets/img/product_images/' . $product->image)) {
+            unlink(BASE . '/assets/img/product_images/' . $product->image);
+        }
+
         if ($deleted) {
             message('success', 'A product has been deleted');
             redirect('products.php');
@@ -192,7 +196,9 @@ class Product extends Connection
         $id = $this->data['id'];
 
         $product = $this->getProduct($id);
-        unlink(BASE . '/assets/img/product_images/' . $product->image);
+        if (file_exists(BASE . '/assets/img/product_images/' . $product->image)) {
+            unlink(BASE . '/assets/img/product_images/' . $product->image);
+        }
 
         if (!array_filter($this->errors)) {
             $sql = "UPDATE products set name=:name, slug=:slug, image=:image, price=:price,
@@ -208,6 +214,7 @@ class Product extends Connection
                 'id' => $id,
             ]);
             if ($updated) {
+                $this->moveFile();
                 message('success', 'A product has been updated');
                 redirect('products.php');
             }

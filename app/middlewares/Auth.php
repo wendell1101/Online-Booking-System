@@ -8,8 +8,13 @@ class Auth extends Connection
     public function restrict()
     {
         if (!isset($_SESSION['id'])) {
-            header('Location: ../login.php');
-            exit();
+            if (strpos(CURRENT_URL, 'admin') !== false) {
+                header('Location: ../login.php');
+                exit();
+            } else {
+                header('Location: login.php');
+                exit();
+            }
         } else {
             $id = $_SESSION['id'];
             $active = 1;
@@ -17,7 +22,7 @@ class Auth extends Connection
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['id' => $id, 'active' => $active]);
             if ($stmt->rowCount() === 0) {
-                header("location:javascript://history.go(-1)");
+                header('Location: login.php');
             }
         }
     }

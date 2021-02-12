@@ -42,6 +42,7 @@ if (isset($_POST['login'])) {
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-5 m-auto border p-3 pt-5 pb-5 login">
+                <?php include 'app/includes/message.php' ?>
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
 
                     <h5 class="text-center text-secondary mb-3">Login Now</h5>

@@ -28,7 +28,7 @@
         <?php endif; ?>
         <ul>
             <li class="<?php echo (strpos(CURRENT_URL, 'index') !== false) ? 'active-home' : '' ?>">
-                <a href=" index.php">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li class="<?php echo (strpos(CURRENT_URL, 'about') !== false) ? 'active' : '' ?>">
                 <a href="about.php">About</a>

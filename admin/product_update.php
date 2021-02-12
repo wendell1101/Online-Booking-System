@@ -90,7 +90,7 @@ if (isset($_POST['update'])) {
                         }
                     }
                     ?>
-                    " value="<?php echo $price ?>">
+                    " value="<?php echo number_format((float)$price, 2, '.', '') ?>">
                     <div class="text-danger">
                         <small><?php echo $errors['price'] ?? '' ?></small>
                     </div>

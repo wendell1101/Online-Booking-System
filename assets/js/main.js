@@ -1,6 +1,8 @@
 const hamburger = document.querySelector('.hamburger');
 const sideNav = document.querySelector('.side-nav');
 const wrapper = document.querySelector('.wrapper');
+const navbar = document.querySelector('.main-nav')
+
 
 hamburger.addEventListener('click', () => {
     wrapper.classList.toggle('active');
@@ -11,3 +13,5 @@ hamburger.addEventListener('click', () => {
         hamburger.innerHTML = `<i class="fas fa-bars"></i>`;
     }
 })
+
+

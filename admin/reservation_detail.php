@@ -10,10 +10,10 @@ require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
 $reservation = new AdminReservation();
 $activeReservation;
 $user = '';
-if(isset($_GET['user_id'])){
+if (isset($_GET['user_id'])) {
     $user = $reservation->getUser($_GET['user_id']);
 }
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $activeReservation = $reservation->getReservation($_GET['id']);
 }
 ?>
@@ -28,15 +28,16 @@ if(isset($_GET['id'])){
             <div class="table-responsive">
                 <?php if ($user) : ?>
                     <table class="table">
-                    <a href="reservations.php">
-                        <i class="fas fa-long-arrow-alt-left" style="font-size: 2rem"></i>
-                    </a>
+                        <a href="reservations.php">
+                            <i class="fas fa-long-arrow-alt-left" style="font-size: 2rem; color: #3f240d"></i>
+                        </a>
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">No. of People</th>
+                                <th scope="col">Contact Number</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Created At</th>
                             </tr>
@@ -44,15 +45,16 @@ if(isset($_GET['id'])){
                         <tbody>
                             <?php include BASE . '/app/includes/message.php' ?>
 
-                                <tr>
-                                    <th scope="row"><?php echo 1?></th>
-                                    <td><?php echo $user->firstname .' '. $user->lastname ?></td>
-                                    <td><?php echo $user->email ?></td>
-                                    <td><?php echo $activeReservation->no_of_people ?></td>
-                                    <td><?php echo $activeReservation->status ?></td>
-                                    <td><?php echo shortDate($activeReservation->created_at) ?></td>
+                            <tr>
+                                <th scope="row"><?php echo 1 ?></th>
+                                <td><?php echo $user->firstname . ' ' . $user->lastname ?></td>
+                                <td><?php echo $user->email ?></td>
+                                <td><?php echo $activeReservation->no_of_people ?></td>
+                                <td><?php echo $activeReservation->contact_number ?></td>
+                                <td><?php echo $activeReservation->status ?></td>
+                                <td><?php echo shortDate($activeReservation->created_at) ?></td>
 
-                                </tr>
+                            </tr>
                         </tbody>
                     </table>
                 <?php else : ?>

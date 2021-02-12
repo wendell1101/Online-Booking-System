@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item menu-open
-            <?php echo (strpos(CURRENT_URL, 'admin_users') !== false) ? 'active' : '' ?>
+            <?php echo (strpos(CURRENT_URL, 'admin_user') !== false) ? 'active' : '' ?>
             ">
                 <a href="<?php echo BASE_URL . 'admin/admin_users.php' ?>" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item menu-open
-            <?php echo (strpos(CURRENT_URL, 'categories') !== false) ? 'active' : '' ?>
+            <?php echo (strpos(CURRENT_URL, 'categor') !== false) ? 'active' : '' ?>
             ">
                 <a href="<?php echo BASE_URL . 'admin/categories.php' ?>" class="nav-link ">
                     <i class="nav-icon fa fa-list-alt"></i>
@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item menu-open
-            <?php echo (strpos(CURRENT_URL, 'products') !== false) ? 'active' : '' ?>
+            <?php echo (strpos(CURRENT_URL, 'product') !== false) ? 'active' : '' ?>
             ">
                 <a href="<?php echo BASE_URL . 'admin/products.php' ?>" class=" nav-link ">
                     <i class=" fas fa-coffee mr-2"></i>

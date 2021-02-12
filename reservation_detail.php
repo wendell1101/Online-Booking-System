@@ -63,7 +63,8 @@ if (isset($_GET['id'])) {
 
 
                 <span>Date and Time: <?php echo formatDate($reservation->date_time) ?></span><br>
-                <span>Number of People: <?php echo $reservation->no_of_people ?></span>
+                <span>Number of People: <?php echo $reservation->no_of_people ?></span><br>
+                <span>Contact Number: <?php echo $reservation->contact_number ?></span>
 
                 <hr>
                 <a href="reservations.php" class="btn btn-primary" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to reservations</a>

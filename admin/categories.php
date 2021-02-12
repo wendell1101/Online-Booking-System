@@ -7,8 +7,8 @@ require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
 require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
-$category = new Category();
-$categories = $category->index();
+$activeCategory = new Category();
+$categories = $activeCategory->index();
 ?>
 
 
@@ -36,8 +36,8 @@ $categories = $category->index();
                             <?php foreach ($categories as $key => $category) : ?>
                                 <tr>
                                     <th scope="row"><?php echo $key + 1 ?></th>
-                                    <td><a href="#"><?php echo $category->name ?></a></td>
-                                    <td>5</td>
+                                    <td><a href="category_detail.php?slug=<?php echo $category->slug ?>"><?php echo $category->name ?></a></td>
+                                    <td><?php echo $activeCategory->getProductInCategoryCount($category->id) ?></td>
                                     <td class="d-flex">
 
                                         <form action="category_update.php" method="POST">

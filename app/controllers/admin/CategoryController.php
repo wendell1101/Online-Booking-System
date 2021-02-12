@@ -17,6 +17,12 @@ class Category extends Connection
         return $categories = $stmt->fetchAll();
     }
 
+    public function getProductInCategoryCount($category_id)
+    {
+        $stmt = $this->conn->query("SELECT * FROM products WHERE category_id=$category_id");
+        return $stmt->rowCount();
+    }
+
     public function create($data)
     {
         $this->data = $data;
@@ -84,15 +90,24 @@ class Category extends Connection
         }
     }
     // get single category
-    public function getCategory($id)
+    public function getCategory($slug)
     {
-        $sql = "SELECT * FROM categories WHERE id=:id";
+        $sql = "SELECT * FROM categories WHERE slug=:slug";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['slug' => $slug]);
         $category = $stmt->fetch();
         return $category;
     }
 
+    // get products filtered by category
+    public function getProductInCategory($id)
+    {
+        $sql = "SELECT * FROM products WHERE category_id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $products = $stmt->fetchAll();
+        return $products;
+    }
     //update category
     public function update($data)
     {
