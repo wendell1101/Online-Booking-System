@@ -82,7 +82,7 @@ if (isset($_GET['active']) || isset($_POST['submit'])) {
                             </div>
 
                             <div class="d-grid mt-2">
-                                <button type="submit" name="submit" class="btn btn-danger btn-block">Activate</button>
+                                <button type="submit" name="submit" class="btn btn-primary btn-block">Activate</button>
                             </div>
                         </form>
                     </div>

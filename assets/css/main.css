@@ -259,6 +259,7 @@ li {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-bottom: 50px;
 }
 
 /* our place section */
@@ -275,6 +276,10 @@ li {
 
 .place-container .place-image {
   width: 100%;
+}
+
+.place-title {
+  margin-bottom: 50px;
 }
 
 /* our categorized menu*/
@@ -359,6 +364,7 @@ li {
 footer {
   padding: 0 1rem;
   background: rgba(114, 41, 13, 0.52);
+  background: #bba690;
   min-height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -509,9 +515,6 @@ footer .logo {
   .place-btn2 {
     display: block !important;
     z-index: 100;
-  }
-  .place-title {
-    margin-top: 120px;
   }
   .menu .text-title {
     font-size: 2rem;

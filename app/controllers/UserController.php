@@ -230,7 +230,8 @@ class UserController extends Connection
 
             $mail->send();
             $_SESSION['id'] = $id;
-            $_SESSION['message'] = 'An account verification code has been sent to your email';
+            message('success', 'An account verification code has been sent to your email');
+            // $_SESSION['message'] = 'An account verification code has been sent to your email';
             $_SESSION['activate'] = true;
             $_SESSION['token'] = $token;
             redirect('activation.php');

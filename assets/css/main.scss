@@ -51,7 +51,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  // margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 
 /* our place section */
@@ -66,6 +66,9 @@ li {
   .place-image {
     width: 100%;
   }
+}
+.place-title {
+  margin-bottom: 50px;
 }
 
 /* our categorized menu*/
@@ -132,6 +135,7 @@ li {
 footer {
   padding: 0 1rem;
   background: rgba(114, 41, 13, 0.52);
+  background: $primaryColor4;
   min-height: 100px;
   display: flex;
   align-items: center;
@@ -200,9 +204,9 @@ footer {
     display: block !important;
     z-index: 100;
   }
-  .place-title {
-    margin-top: 120px;
-  }
+  // .place-title {
+  //   margin-top: 50px;
+  // }
   .menu {
     .text-title {
       font-size: 2rem;
