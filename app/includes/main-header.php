@@ -99,3 +99,6 @@
             </li>
         <?php endif ?>
     </ul>
+
+    <!--Back to top button-->
+    <a id="button"><i class="fas fa-arrow-up arrow"></i></a>

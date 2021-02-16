@@ -8,6 +8,7 @@
 </footer>
 
 <!-- <script src="node_modules/flatpickr/dist/flatpickr.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="assets/js/flatpickr.min.js"></script>
 <script src="assets/js/main.js"></script>
 

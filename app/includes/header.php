@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--custom css -->
     <!--flatpckr -->
-    <link rel="stylesheet" href="node_modules/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
     <!--custom css -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -122,3 +122,5 @@
             </li>
         <?php endif ?>
     </ul>
+    <!--Back to top button-->
+    <a id="button"><i class="fas fa-arrow-up arrow"></i></a>

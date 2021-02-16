@@ -396,6 +396,71 @@ footer .logo {
   font-size: 1.8rem;
 }
 
+/*back to top button*/
+#button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #0a0a0a;
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  -webkit-transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#button .arrow {
+  font-size: 1.1rem;
+  width: 100%;
+  height: 100%;
+  color: #0a0a0a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+}
+
+#button .arrow:hover {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+#button:hover {
+  cursor: pointer;
+  background-color: #0a0a0a;
+  border: 1px solid #fff;
+  text-decoration: none !important;
+}
+
+#button:active {
+  background-color: #555;
+}
+
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 /*authentication*/
 .terms {
   width: 100%;
