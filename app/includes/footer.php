@@ -7,7 +7,8 @@
     </div>
 </footer>
 
-<script src="node_modules/flatpickr/dist/flatpickr.min.js"></script>
+<!-- <script src="node_modules/flatpickr/dist/flatpickr.min.js"></script> -->
+<script src="assets/js/flatpickr.min.js"></script>
 <script src="assets/js/main.js"></script>
 
 <script>
