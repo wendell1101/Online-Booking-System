@@ -173,6 +173,7 @@ li {
 }
 
 .side-nav li a {
+  width: 100% !important;
   color: #fff;
 }
 
@@ -315,8 +316,9 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 8px 8px 5px #bba690;
-          box-shadow: 8px 8px 5px #bba690;
+  box-shadow: 1px 2px 26px 0px rgba(39, 38, 38, 0.75);
+  -webkit-box-shadow: 1px 2px 26px 0px rgba(39, 38, 38, 0.75);
+  -moz-box-shadow: 1px 2px 26px 0px rgba(39, 38, 38, 0.75);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   text-decoration: none;
@@ -335,8 +337,9 @@ li {
 }
 
 .menu-category:hover {
-  -webkit-box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
   text-decoration: none;
   color: #0a0a0a;
 }
@@ -389,7 +392,7 @@ footer .logo {
 }
 
 .footer-icons .icon:hover {
-  color: #503d35 !important;
+  color: #fff !important;
   font-size: 1.8rem;
 }
 

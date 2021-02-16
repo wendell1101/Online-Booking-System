@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
 <div class="wrapper">
     <div class="container" style="margin-top:100px; margin-bottom:100px">
         <?php include 'app/includes/message.php' ?>
-        <article class="card shadow">
+        <article class="card border">
             <div class="card-body">
                 <h6>Transaction Id: <?php echo $reservation->transaction_id ?></h6>
                 <article class="card">

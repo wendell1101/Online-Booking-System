@@ -62,7 +62,6 @@ class UserController extends Connection
         if (empty($val)) {
             $this->addError('firstname', 'Firstname must not be empty');
         } else {
-            // match any lowercase/uppercase letter, any digits from 0-9, atleast 3-20 characters
             if (!preg_match("/^[a-z ,.'-]+$/i", $val)) {
                 $this->addError('firstname', 'Firstname must be alphanumeric characters only');
             }
@@ -77,7 +76,6 @@ class UserController extends Connection
         if (empty($val)) {
             $this->addError('lastname', 'Lastname must not be empty');
         } else {
-            // match any lowercase/uppercase letter, any digits from 0-9, atleast 3-20 characters
             if (!preg_match("/^[a-z ,.'-]+$/i", $val)) {
                 $this->addError('lastname', 'Lastname must be must be alphanumeric characters only');
             }

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "admin-lte": "^3.1.0-rc",
+    "chart.js": "^2.9.4",
     "flatpickr": "^4.6.9"
   }
 }

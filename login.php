@@ -44,8 +44,7 @@ if (isset($_POST['login'])) {
             <div class="col-md-5 m-auto border p-3 pt-5 pb-5 login">
                 <?php include 'app/includes/message.php' ?>
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-
-                    <h5 class="text-center text-secondary mb-3">Login Now</h5>
+                    <h4 class="text-center pb-3 border-bottom mb-3">Login Now! <a href="index.php" class="text-primary">Coffee Royale</a></h4>
                     <!--email-->
                     <div class="form-group mt-2">
                         <input type="text" name="email" id="email" class="form-control

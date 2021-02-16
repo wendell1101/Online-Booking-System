@@ -20,7 +20,7 @@ if (isset($_POST['reserve'])) {
                     <h5 class="text-center mt-4">We love hearing from our customers. </h5>
                 </div>
                 <div class="col-md-5">
-                    <div class="row">
+                    <div class="row contact-texts">
                         <div class="col-md-12 mt-5">
                             <h4>Email</h4>
                             <p class="text-title pb-2">coffeeroyale@gmail.com</p>

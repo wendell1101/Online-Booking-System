@@ -47,7 +47,7 @@ if (isset($_POST['register'])) {
         <div class="row">
             <div class="col-md-5 mx-auto shadow p-3 bg-white register">
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-                    <h4 class="pb-3 border-bottom mb-3">Register Now! <a href="index.php" class="text-primary">Coffee Royale</a></h4>
+                    <h4 class="text-center pb-3 border-bottom mb-3">Register Now! <a href="index.php" class="text-primary">Coffee Royale</a></h4>
 
                     <div class="row">
                         <!--firstname-->

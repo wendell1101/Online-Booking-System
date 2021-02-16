@@ -50,7 +50,7 @@ if (isset($_POST['create'])) {
                         }
                     }
                     ?>
-                    " value="<?php echo $_POST['image'] ?? '' ?>">
+                    " value="<?php echo $_POST['image'] ?? '' ?>" required>
                     <div class="text-danger">
                         <small><?php echo $errors['image'] ?? '' ?></small>
                     </div>

@@ -17,7 +17,7 @@ $reservations = $reservation->index();
     <div class="reservations" style="margin-top: 100px">
         <div class="container">
             <?php include 'app/includes/message.php' ?>
-            <div class="card shadow">
+            <div class="card border">
                 <div class="card-header d-flex align-items-center">
                     <h4>Reservations</h4>
                 </div>
