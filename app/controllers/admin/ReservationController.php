@@ -1,4 +1,9 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class AdminReservation extends Connection
 {
     private $data;
@@ -131,9 +136,68 @@ class AdminReservation extends Connection
             'status' => sanitize($data['status']),
             'id' => sanitize($data['id']),
         ]);
+
+        $reservation = $this->getReservation($data['id']);
+        $user = $this->getUser($reservation->user_id);
+
         if ($updated) {
-            message('success', 'A reservation has been updated');
-            redirect('reservations.php');
+            if ($reservation->status !== 'pending') {
+                $date = $this->formatDate($reservation->date_time);
+                $this->send_mail($user, $reservation, $date);
+            } else {
+                message('success', 'A reservation has been updated');
+                redirect('reservations.php');
+            }
+        }
+    }
+    private function formatDate($date)
+    {
+        $d = new DateTime($date);
+        return $d->format("F j \, Y \, g:ia \,\n l ");
+    }
+    // send email notification
+    private function send_mail($user, $reservation, $date)
+    {
+        // Load Composer's autoloader
+        require '../vendor/autoload.php';
+        // Instantiation and passing `true` enables exceptions
+        $mail = new PHPMailer();
+        try {
+
+            //Server settings
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = EMAIL;                     // SMTP username
+            $mail->Password   = PASS;                               // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+            //Recipients
+            $mail->setFrom('coffeeroyale@gmail.com', 'Coffee Royale');
+            $mail->addAddress($user->email);     // Add a recipient
+
+
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Reservation Update';
+            $mail->Body    = "
+                <h3>Good day $user->firstname $user->lastname! </h3>
+                <h4>Your reservation status is now $reservation->status. </h4>
+                <p>Thank you for trusting us. </p><br><br>
+                <p>Transaction Id: $reservation->transaction_id </p>
+                <p>Reservation Date: $date </p>
+            ";
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $sent = $mail->send();
+            if ($sent) {
+                message('success', 'A reservation has been updated');
+                redirect('reservations.php');
+            }
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 }

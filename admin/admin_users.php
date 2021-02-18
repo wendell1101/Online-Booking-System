@@ -5,7 +5,8 @@ require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
-require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
+$auth->restrict();
+require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $adminUser = new AdminUser();
 
@@ -27,6 +28,7 @@ $users = $adminUser->index();
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Role</th>
@@ -37,8 +39,11 @@ $users = $adminUser->index();
                             <?php include BASE . '/app/includes/message.php' ?>
 
                             <?php foreach ($users as $key => $user) : ?>
-                                <tr>
+                                <tr class="align-items-center">
                                     <th scope="row"><?php echo $key + 1 ?></th>
+                                    <td>
+                                        <img class="rounded-circle" width="35" src="https://ui-avatars.com/api/?name=<?php echo $user->firstname, $user->lastname ?>" alt="image">
+                                    </td>
                                     <td><?php echo $user->firstname . ' ' . $user->lastname ?></td>
                                     <td><?php echo $user->email ?></td>
                                     <td><?php

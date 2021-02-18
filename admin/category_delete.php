@@ -5,6 +5,7 @@ require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
+$auth->restrict();
 require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $category = new Category();
@@ -13,6 +14,8 @@ $category = new Category();
 if (isset($_POST['id'])) {
     $id = sanitize($_POST['id']);
     $activeCategory = $category->getCategory($id);
+} else {
+    redirect('categories.php');
 }
 if (isset($_POST['delete'])) {
     $category->delete($_POST['id']);

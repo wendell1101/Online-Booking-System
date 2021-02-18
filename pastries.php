@@ -46,7 +46,7 @@ if (isset($_POST['reserve'])) {
                         </div>
                     <?php endforeach; ?>
                 <?php else : ?>
-                    <h2 class="text-secondary text-center">No pastry yet</h2>
+                    <h2 class="text-secondary text-center mx-auto">No pastry yet</h2>
                 <?php endif; ?>
 
 

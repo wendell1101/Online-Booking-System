@@ -147,7 +147,8 @@ class AdminUser extends Connection
             message('success', 'A user has been deleted');
             redirect('admin_users.php');
         } else {
-            echo 'error in delete';
+            message('danger', 'A user cannot be deleted because of associated reservation');
+            redirect('admin_users.php');
         }
     }
     // get single category

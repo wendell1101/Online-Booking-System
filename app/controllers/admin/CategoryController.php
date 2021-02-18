@@ -83,18 +83,19 @@ class Category extends Connection
         $stmt = $this->conn->prepare($sql);
         $deleted = $stmt->execute(['id' => $id]);
         if ($deleted) {
-            message('success', 'A new category has been deleted');
+            message('success', 'A category has been deleted');
             redirect('categories.php');
         } else {
-            echo 'error in delete';
+            message('danger', 'A category cannot be deleted because of associated products');
+            redirect('categories.php');
         }
     }
     // get single category
-    public function getCategory($slug)
+    public function getCategory($id)
     {
-        $sql = "SELECT * FROM categories WHERE slug=:slug";
+        $sql = "SELECT * FROM categories WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['slug' => $slug]);
+        $stmt->execute(['id' => $id]);
         $category = $stmt->fetch();
         return $category;
     }

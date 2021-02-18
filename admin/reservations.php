@@ -5,10 +5,10 @@ require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
-require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
+$auth->restrict();
+require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $reservation = new AdminReservation();
-
 $reservations = $reservation->index();
 ?>
 

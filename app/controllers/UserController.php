@@ -204,13 +204,13 @@ class UserController extends Connection
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'zuperdummy@gmail.com';                     // SMTP username
-            $mail->Password   = 'q1rr560h';                               // SMTP password
+            $mail->Username   = EMAIL;                     // SMTP username
+            $mail->Password   = PASS;                               // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
-            $mail->setFrom('from@KingsGourmet.com', 'Mailer');
+            $mail->setFrom('coffeeroyale@gmail.com', 'Coffee Royale');
             $mail->addAddress($email);     // Add a recipient
 
 
@@ -222,14 +222,12 @@ class UserController extends Connection
                 <h3> $token </h3>
                 <h1>OR</h1>
                 <h3><a href='$currentUrl/activation.php?active=$token&id=$id'>$currentUrl/activation.php?active=$token&id=$id </a></h3>
-
             ";
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
             $_SESSION['id'] = $id;
             message('success', 'An account verification code has been sent to your email');
-            // $_SESSION['message'] = 'An account verification code has been sent to your email';
             $_SESSION['activate'] = true;
             $_SESSION['token'] = $token;
             redirect('activation.php');

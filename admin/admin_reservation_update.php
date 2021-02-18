@@ -5,7 +5,8 @@ require_once BASE . '/app/core.php';
 require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/Auth.php';
 $auth = new Auth();
-require_once BASE . '/app/middlewares/CheckIfIsAdmin.php';
+$auth->restrict();
+require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $reservation = new AdminReservation();
 
@@ -52,8 +53,9 @@ if (isset($_POST['update'])) {
                     </select>
                 </div>
                 <input type="hidden" name="id" value="<?php echo $activeReservation->id ?>">
-                <div class="form-group">
-                    <button type="submit" name="update" class="btn float-right">Reserve</button>
+                <div class="form-group d-flex justify-content-end align-items-center mt-2">
+                    <a href="reservations.php" class="btn btn-secondary mr-2">Cancel</a>
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
