@@ -101,7 +101,28 @@
 .side-nav.active {
   display: block;
 }
-
+.sticky2 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8vh !important;
+  z-index: 500;
+  background: $primaryColor3;
+  padding: 45px 8px !important;
+  -webkit-box-shadow: -1px 4px 11px -2px $primaryColor4;
+  box-shadow: -1px 2px 2px -2px #f4f4f4;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8vh !important;
+  z-index: 500;
+  background: #fff;
+  padding: 45px 8px !important;
+  -webkit-box-shadow: -1px 4px 11px -2px $primaryColor4;
+  box-shadow: -1px 2px 2px -2px #f4f4f4;
+}
 @keyframes slideLeft {
   0% {
     transform: translateX(-100px);

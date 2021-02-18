@@ -20,11 +20,11 @@
 </head>
 
 <body>
-    <nav class="main-nav">
+    <nav class="main-nav" id="nav">
         <?php if (strpos(CURRENT_URL, 'about')) : ?>
-            <a href="index.php" class="logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
+            <a href="index.php" class="logo" id="logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
         <?php else : ?>
-            <a href="index.php" class="logo"><img src="assets/img/logo2_dark.png" alt="logo"></a>
+            <a href="index.php" class="logo" id="logo"><img src="assets/img/logo2_dark.png" alt="logo"></a>
         <?php endif; ?>
         <ul>
             <li class="<?php echo (strpos(CURRENT_URL, 'index') !== false) ? 'active-home' : '' ?>">

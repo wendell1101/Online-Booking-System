@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
         <a href="index.php" class="logo"><img src="assets/img/logo2_light.png" alt="logo"></a>
         <ul>
 

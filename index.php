@@ -155,5 +155,22 @@ if (isset($_POST['reserve'])) {
 
 
 
+<script>
+    const wrapper2 = document.querySelector('.wrapper');
+    const nav = document.getElementById('main-nav');
+    const url = window.location.href;
+    // fixed navbar
 
+    window.addEventListener('scroll', fixNav)
+
+    function fixNav() {
+        if (window.scrollY > nav.offsetHeight + 200) {
+            nav.classList.add('sticky2');
+            wrapper2.style.paddingTop = "100px";
+        } else {
+            nav.classList.remove('sticky2');
+            wrapper2.style.paddingTop = "0";
+        }
+    }
+</script>
 <?php include 'app/includes/footer.php' ?>
