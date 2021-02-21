@@ -14,14 +14,36 @@ class AdminReservation extends Connection
         parent::__construct();
     }
 
-    public function index()
+    // public function index()
+    // {
+    //     $sql = "SELECT * FROM reservations";
+    //     $stmt = $this->conn->query($sql);
+    //     $stmt->execute();
+    //     return $reservations = $stmt->fetchAll();
+    // }
+    public function index($status)
     {
-        $sql = "SELECT * FROM reservations";
-        $stmt = $this->conn->query($sql);
-        $stmt->execute();
-        return $reservations = $stmt->fetchAll();
+        if ($status === '' || $status === 'all') {
+            $sql = "SELECT * FROM reservations";
+            $stmt = $this->conn->query($sql);
+            $stmt->execute();
+            return $reservations = $stmt->fetchAll();
+        } else {
+            $sql = "SELECT * FROM reservations WHERE status=:status";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['status' => $status]);
+            return $reservations = $stmt->fetchAll();
+        }
     }
 
+    public function search($query)
+    {
+
+        $sql = "SELECT * FROM reservations WHERE transaction_id LIKE :query";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['query' => '%' . $query . '%']);
+        return $reservations = $stmt->fetchAll();
+    }
     public function getData()
     {
         return $this->data;

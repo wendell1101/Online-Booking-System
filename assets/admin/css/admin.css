@@ -18,3 +18,11 @@
   background: #f8961e;
   border-radius: 5px;
 }
+.search {
+  background: #f8961e;
+  border: 1px solid #fff !important;
+}
+.search:hover {
+  background: #e0810d;
+  border: 1px solid #fff !important;
+}
