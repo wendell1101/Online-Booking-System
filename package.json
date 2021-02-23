@@ -1,5 +1,21 @@
 {
   "dependencies": {
     "admin-lte": "^3.1.0-rc"
-  }
+  },
+  "name": "online_reservation_system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run development"
+  },
+  "repository": "git+https://github.com/wendell1101/Restaurant-Online-Reservation-System.git",
+  "author": "wendell suazo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wendell1101/Restaurant-Online-Reservation-System/issues"
+  },
+  "homepage": "https://github.com/wendell1101/Restaurant-Online-Reservation-System#readme",
+  "description": ""
 }
