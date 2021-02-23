@@ -67,21 +67,22 @@ if (isset($_POST['reserve'])) {
             <h1 class="text-title">Our Categorized Menu</h1>
             <div class="row justify-content-center mt-5 p-2">
                 <a href="menu.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <i class="fas fa-mug-hot"></i>
+                    <!-- <i class="fas fa-mug-hot"></i> -->
+                    <img src="assets/img/drink_icon.svg" alt="drink" width="80">
                     <span class="category-text">
                         Drinks
                     </span>
                 </a>
                 <a href="pastries.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <i class="fas fa-bread-slice"></i>
+                    <img src="assets/img/pastry_icon.svg" alt="pastry" width="80">
                     <span class="category-text">
                         Pastries
                     </span>
                 </a>
                 <a href="desserts.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <i class="fas fa-ice-cream"></i>
+                    <img src="assets/img/dessert_icon.svg" alt="dessert" width="80">
                     <span class="category-text">
-                        Deserts
+                        Desserts
                     </span>
                 </a>
             </div>

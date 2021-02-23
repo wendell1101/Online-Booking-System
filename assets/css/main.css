@@ -312,13 +312,13 @@ li {
   padding-top: 100px;
   width: 100%;
   min-height: 100vh;
-  background: #78644e;
+  background: url("../img/category_bg.png");
   background-size: cover;
 }
 
 .menu .text-title {
   width: 500px;
-  color: #fff;
+  color: #0a0a0a;
   padding-bottom: 0.5rem;
   border-color: #503d35;
   text-align: center;
@@ -327,6 +327,7 @@ li {
 .menu-category {
   min-height: 300px;
   border-radius: 1rem;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -349,6 +350,15 @@ li {
   color: #0a0a0a;
 }
 
+.menu-category img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 130px !important;
+}
+
 .menu-category i {
   font-size: 2.5rem;
   position: relative;
@@ -361,9 +371,9 @@ li {
 }
 
 .menu-category:hover {
-  box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
+  -webkit-box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
+  -moz-box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
   text-decoration: none;
   color: #0a0a0a;
 }

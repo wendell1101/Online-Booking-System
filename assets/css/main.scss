@@ -77,12 +77,12 @@ li {
   width: 100%;
   min-height: 100vh;
 
-  background: $primaryColor2;
-  // background: url("../img/category_bg.png");
+  // background: $primaryColor2;
+  background: url("../img/category_bg.png");
   background-size: cover;
   .text-title {
     width: 500px;
-    color: #fff;
+    color: $primaryColor3;
     padding-bottom: 0.5rem;
     border-color: $primaryColor1;
     text-align: center;
@@ -91,6 +91,7 @@ li {
 .menu-category {
   min-height: 300px;
   border-radius: 1rem;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +102,13 @@ li {
   transition: 0.3s ease-in-out;
   text-decoration: none;
   color: $primaryColor3;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px !important;
+  }
   i {
     font-size: 2.5rem;
     position: relative;
@@ -112,9 +120,9 @@ li {
   }
 }
 .menu-category:hover {
-  box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 1px 2px 23px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
+  -webkit-box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
+  -moz-box-shadow: 1px 2px 23px 0px rgba(98, 75, 32, 0.671);
   text-decoration: none;
   color: $primaryColor3;
 }
