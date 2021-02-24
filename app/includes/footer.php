@@ -15,7 +15,7 @@
 <script>
     const dateTime = document.getElementById('date_time');
     flatpickr("#date_time", {
-        // minDate: "today",
+        minDate: "today",
         minTime: "16:00",
         maxTime: "22:00",
         enableTime: true,

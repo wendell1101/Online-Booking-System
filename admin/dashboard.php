@@ -81,7 +81,7 @@ $data = $dashboard->getReservationCountByMonth();
                 <canvas id="myChart" width="400" height="200"></canvas>
             </div>
             <div class="col-md-6 mt-5">
-                <h5 class="text-center">Reservation Summary (2021)</h5>
+                <h5 class="text-center">Reservation Summary (<?php echo date("Y") ?>)</h5>
                 <canvas id="lineChart" width="400" height="200"></canvas>
             </div>
         </div>
@@ -95,6 +95,7 @@ $data = $dashboard->getReservationCountByMonth();
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
 <script src="../assets/js/Chart.min.js"></script>
 <script>
+    // BAR GRAPH
     var ctx = document.getElementById('myChart').getContext('2d');
     var usersCount = "<?php echo $dashboard->getUsersCount() ?>";
     var productsCount = "<?php echo $dashboard->getProductsCount() ?>";
@@ -135,6 +136,7 @@ $data = $dashboard->getReservationCountByMonth();
 </script>
 
 <script>
+    // LINE GRAPH
     var ctx = document.getElementById('lineChart').getContext('2d');
     var jan = "<?php echo $data['jan'] ?>";
     var feb = "<?php echo $data['feb'] ?>";

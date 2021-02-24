@@ -91,11 +91,11 @@ class Category extends Connection
         }
     }
     // get single category
-    public function getCategory($id)
+    public function getCategory($slug)
     {
-        $sql = "SELECT * FROM categories WHERE id=:id";
+        $sql = "SELECT * FROM categories WHERE slug=:slug";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['slug' => $slug]);
         $category = $stmt->fetch();
         return $category;
     }

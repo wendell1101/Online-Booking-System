@@ -52,11 +52,11 @@ if (isset($_GET['id'])) {
                         <div class="step active"> <span class="icon"> <i class="far fa-calendar-check"></i> </span> <span class="text"> Reserved</span> </div>
                         <div class="step active"> <span class="icon"> <i class="fas fa-check"></i> </span> <span class="text"> Completed</span> </div>
                         <div class="step"> <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
-                    <?php elseif ($reservation->status === 'cancelled') : ?>
-                        <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Order created</span> </div>
-                        <div class="step active"> <span class="icon"> <i class="far fa-calendar-check"></i> </span> <span class="text"> Paid</span> </div>
-                        <div class="step active"> <span class="icon"> <i class="fas fa-check"></i> </span> <span class="text"> Shipped</span> </div>
-                        <div class="step active"> <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Refunded</span> </div>
+                    <?php elseif ($reservation->status == 'cancelled') : ?>
+                        <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending</span> </div>
+                        <div class="step active"> <span class="icon"> <i class="far fa-calendar-check"></i> </span> <span class="text"> Reserved</span> </div>
+                        <div class="step active"> <span class="icon"> <i class="fas fa-check"></i> </span> <span class="text"> Completed</span> </div>
+                        <div class="step active"> <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                     <?php endif; ?>
                 </div>
                 <hr>
