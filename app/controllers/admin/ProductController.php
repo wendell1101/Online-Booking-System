@@ -11,13 +11,30 @@ class Product extends Connection
         parent::__construct();
     }
 
-    public function index()
+    public function index($id)
     {
-        $sql = "SELECT * FROM products";
-        $stmt = $this->conn->query($sql);
-        $stmt->execute();
+        if ($id === '' || $id === 'all') {
+            $sql = "SELECT * FROM products";
+            $stmt = $this->conn->query($sql);
+            $stmt->execute();
+            return $products = $stmt->fetchAll();
+        } else {
+            $sql = "SELECT * FROM products WHERE category_id=:id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            return $products = $stmt->fetchAll();
+        }
+    }
+
+    public function search($query)
+    {
+
+        $sql = "SELECT * FROM products WHERE name LIKE :query";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['query' => '%' . $query . '%']);
         return $products = $stmt->fetchAll();
     }
+
 
     public function create($data)
     {
