@@ -1,7 +1,7 @@
 <?php
 
 // constants
-define('BASE_URL', 'http://localhost/booking_system/');
+define('BASE_URL', 'http://localhost/online-booking-system/');
 define('TITLE', 'Coffee Royale');
 define('SERVER_NAME', $_SERVER['SERVER_NAME']);
 define('REQUEST_URI', $_SERVER['REQUEST_URI']);

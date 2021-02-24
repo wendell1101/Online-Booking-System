@@ -198,7 +198,7 @@ class UserController extends Connection
         $mail = new PHPMailer();
         try {
             $serverName = $_SERVER['SERVER_NAME'];
-            $currentUrl = $serverName . '/booking_system';
+            $currentUrl = $serverName . '/online-booking-system';
             //Server settings
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
