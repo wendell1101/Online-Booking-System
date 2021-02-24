@@ -9,6 +9,7 @@ require_once BASE . '/app/includes/admin/header.php';
 require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $dashboard = new Dashboard();
+$data = $dashboard->getReservationCountByMonth();
 ?>
 
 <!-- Main content -->
@@ -79,6 +80,10 @@ $dashboard = new Dashboard();
                 <h5 class="text-center">Data Summary</h5>
                 <canvas id="myChart" width="400" height="200"></canvas>
             </div>
+            <div class="col-md-6 mt-5">
+                <h5 class="text-center">Reservation Summary (2021)</h5>
+                <canvas id="lineChart" width="400" height="200"></canvas>
+            </div>
         </div>
 
     </div><!-- /.container-fluid -->
@@ -115,6 +120,55 @@ $dashboard = new Dashboard();
                     '#333',
                 ],
                 borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var jan = "<?php echo $data['jan'] ?>";
+    var feb = "<?php echo $data['feb'] ?>";
+    var mar = "<?php echo $data['mar'] ?>";
+    var april = "<?php echo $data['april'] ?>";
+    var may = "<?php echo $data['may'] ?>";
+    var june = "<?php echo $data['june'] ?>";
+    var july = "<?php echo $data['july'] ?>";
+    var aug = "<?php echo $data['aug'] ?>";
+    var sept = "<?php echo $data['sept'] ?>";
+    var oct = "<?php echo $data['oct'] ?>";
+    var nov = "<?php echo $data['nov'] ?>";
+    var dec = "<?php echo $data['dec'] ?>";
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Total Result',
+                data: [jan, feb, mar, april, may, june, july, aug, sept, oct, nov, dec],
+                backgroundColor: [
+                    '#17a2b8',
+                    '#17a2b8',
+                    '#17a2b8',
+                    '#17a2b8',
+                ],
+                borderColor: [
+                    '#333',
+                    '#333',
+                    '#333',
+                    '#333',
+                ],
+                borderWidth: 1,
             }]
         },
         options: {

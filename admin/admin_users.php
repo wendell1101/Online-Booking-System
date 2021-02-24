@@ -42,7 +42,7 @@ $users = $adminUser->index();
                                 <tr class="align-items-center">
                                     <th scope="row"><?php echo $key + 1 ?></th>
                                     <td>
-                                        <img class="rounded-circle" width="35" src="https://ui-avatars.com/api/?name=<?php echo $user->getFullName() ?>" alt="image">
+                                        <img class="rounded-circle" width="35" src="https://ui-avatars.com/api/?name=<?php echo $singleUser->firstname . ' ' . $singleUser->lastname ?>" alt="image">
                                     </td>
                                     <td><?php echo $singleUser->firstname . ' ' . $singleUser->lastname ?></td>
                                     <td><?php echo $singleUser->email ?></td>
