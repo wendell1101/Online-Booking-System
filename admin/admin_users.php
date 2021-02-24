@@ -38,18 +38,18 @@ $users = $adminUser->index();
                         <tbody>
                             <?php include BASE . '/app/includes/message.php' ?>
 
-                            <?php foreach ($users as $key => $user) : ?>
+                            <?php foreach ($users as $key => $singleUser) : ?>
                                 <tr class="align-items-center">
                                     <th scope="row"><?php echo $key + 1 ?></th>
                                     <td>
-                                        <img class="rounded-circle" width="35" src="https://ui-avatars.com/api/?name=<?php echo $user->firstname, $user->lastname ?>" alt="image">
+                                        <img class="rounded-circle" width="35" src="https://ui-avatars.com/api/?name=<?php echo $user->getFullName() ?>" alt="image">
                                     </td>
-                                    <td><?php echo $user->firstname . ' ' . $user->lastname ?></td>
-                                    <td><?php echo $user->email ?></td>
+                                    <td><?php echo $singleUser->firstname . ' ' . $singleUser->lastname ?></td>
+                                    <td><?php echo $singleUser->email ?></td>
                                     <td><?php
-                                        if ($user->is_admin === 1) {
+                                        if ($singleUser->is_admin === 1) {
                                             echo 'admin';
-                                        } else if ($user->is_product_manager === 1) {
+                                        } else if ($singleUser->is_product_manager === 1) {
                                             echo 'product_manager';
                                         } else {
                                             echo 'customer';
@@ -57,13 +57,13 @@ $users = $adminUser->index();
                                         ?></td>
                                     <td class="d-flex">
                                         <form action="admin_user_update.php" method="POST">
-                                            <input type="hidden" name="id" value="<?php echo $user->id ?>">
+                                            <input type="hidden" name="id" value="<?php echo $singleUser->id ?>">
                                             <button type="submit" class="text-warning mr-3" style="border:none; background:none">
                                                 <i class="fas fa-pen"></i>
                                             </button>
                                         </form>
                                         <form action="admin_user_delete.php" method="POST">
-                                            <input type="hidden" name="id" value="<?php echo $user->id ?>">
+                                            <input type="hidden" name="id" value="<?php echo $singleUser->id ?>">
                                             <button type="submit" style="border:none; background:none">
                                                 <i class="fas fa-trash text-danger"></i>
                                             </button>

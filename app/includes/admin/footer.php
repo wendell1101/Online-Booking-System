@@ -17,22 +17,20 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../node_modules/admin-lte/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/admin/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../assets/admin/js/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="../node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/admin/js/bootstrap.bundle.min.js"></script>
 
-<!-- Summernote -->
-<script src="../node_modules/admin-lte/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="../node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../assets/admin/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../node_modules/admin-lte/dist/js/adminlte.js"></script>
+<script src="../assets/admin/js/adminlte.js"></script>
 
 
 </body>

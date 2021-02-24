@@ -7,6 +7,7 @@
     <title><?php echo TITLE ?></title>
     <!--fontawesome5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
     <!--bootstrap-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--custom css -->
