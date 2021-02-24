@@ -1,6 +1,6 @@
 # Online-Booking-System
 
-##Quick Features
+**Quick Features**
 * Authentication with Email Verification
 * Reservation functionality with Email Notification
 * Categorized menus/products
