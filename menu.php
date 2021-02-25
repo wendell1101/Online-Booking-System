@@ -40,8 +40,11 @@ if (isset($_POST['reserve'])) {
                                 <div class="img-container">
                                     <img src="<?php echo  'assets/img/product_images/' . $drink->image ?>" class="img-fluid" alt="image" width="100%">
                                 </div>
-                                <p><?php echo $drink->name ?></p>
-                                <p>PHP <?php echo $drink->price ?></p>
+                                <a href="product_detail.php?id=<?php echo $drink->id ?>?category=menu?name=<?php echo strtolower($drink->name) ?>">
+                                    <?php echo $drink->name ?>
+                                </a>
+
+                                <p><?php echo showPrice($drink->price) ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>

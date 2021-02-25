@@ -85,7 +85,7 @@ if (isset($_GET['q'])) {
                                         <img src="<?php echo  '../assets/img/product_images/' . $product->image ?>" alt="image" width="50" height="50">
                                     </td>
                                     <td><?php echo $product->name ?></td>
-                                    <td>PHP <?php echo showPrice($product->price) ?></td>
+                                    <td><?php echo showPrice($product->price) ?></td>
 
                                     <td class="d-flex">
 

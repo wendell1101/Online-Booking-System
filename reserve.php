@@ -2,8 +2,6 @@
 require "path.php";
 require_once BASE . '/app/core.php';
 
-
-
 $reservation = new Reservation();
 $errors = [];
 $date_time = $no_of_people = $contact_number = "";
@@ -21,80 +19,16 @@ if (isset($_POST['reserve'])) {
     }
 }
 
-
-
 ?>
-<?php require_once BASE . '/app/includes/main-header.php' ?>
-<div class="hero-wrapper"></div>
-<div class="wrapper">
-    <div class="container">
-        <?php include BASE . '/app/includes/message.php' ?>
-        <div class="row hero">
-            <div class="col-md-6">
-            </div>
-            <div class="col-md-6 hero-right">
-                <h1 class="super-text">The Home of Freshly Brewed Coffee</h1>
-            </div>
-        </div>
-    </div>
-
-</div>
+<?php require_once BASE . '/app/includes/header.php' ?>
 
 <div class="wrapper">
-    <!--Our place -->
-    <div class="place">
-        <div class="container">
-            <h1 class="text-center text-title place-title">Our Place</h1>
-            <div class="place-container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <img src="assets/img/place1.jpg" alt="place image" class="place-image mb-2">
-                        <a href="about.php" class="btn place-btn float-right mb-2">More Info</a>
-                    </div>
-                    <div class="col-md-4 pl-2 ">
-                        <img src="assets/img/place2.jpg" alt="place image" class="place-image mb-2">
-                        <img src="assets/img/place3.jpg" alt="place image" class="place-image mb-2">
-                        <a href="about.php" class="btn place-btn2 float-right mb-2" style="display:none">View More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Our Categorize Menu -->
-    <div class="menu">
-        <div class="container">
-            <h1 class="text-title">Our Categorized Menu</h1>
-            <div class="row justify-content-center mt-5 p-2">
-                <a href="menu.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <!-- <i class="fas fa-mug-hot"></i> -->
-                    <img src="assets/img/drink_icon.svg" alt="drink" width="80">
-                    <span class="category-text">
-                        Drinks
-                    </span>
-                </a>
-                <a href="pastries.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <img src="assets/img/pastry_icon.svg" alt="pastry" width="80">
-                    <span class="category-text">
-                        Pastries
-                    </span>
-                </a>
-                <a href="desserts.php" class="col-md-3 mr-4 mb-2 text-center bg-white menu-category">
-                    <img src="assets/img/dessert_icon.svg" alt="dessert" width="80">
-                    <span class="category-text">
-                        Desserts
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!--Reservation -->
     <div class="reservation">
         <div class="container">
-            <h1 class="text-title">Reserve a Table</h1>
-            <div class="row p-2">
-                <div class="col-md-6 mx-auto border reservation-form p-3">
+            <div class="row">
+                <div class="col-md-6 mx-auto border p-3">
+                    <h2 class="text-center text-title mb-3">Reserve a Table</h2>
                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                         <div class="form-group">
                             <label for="date_time">Choose your desired date and time</label>
@@ -154,24 +88,4 @@ if (isset($_POST['reserve'])) {
 </div>
 
 
-
-
-<script>
-    const wrapper2 = document.querySelector('.wrapper');
-    const nav = document.getElementById('main-nav');
-    const url = window.location.href;
-    // fixed navbar
-
-    window.addEventListener('scroll', fixNav)
-
-    function fixNav() {
-        if (window.scrollY > nav.offsetHeight + 200) {
-            nav.classList.add('sticky2');
-            wrapper2.style.paddingTop = "100px";
-        } else {
-            nav.classList.remove('sticky2');
-            wrapper2.style.paddingTop = "0";
-        }
-    }
-</script>
 <?php include 'app/includes/footer.php' ?>

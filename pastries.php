@@ -40,7 +40,9 @@ if (isset($_POST['reserve'])) {
                                 <div class="img-container">
                                     <img src="<?php echo  'assets/img/product_images/' . $pastry->image ?>" class="img-fluid" alt="image" width="100%">
                                 </div>
-                                <p><?php echo $pastry->name ?></p>
+                                <a href="product_detail.php?id=<?php echo $pastry->id ?>?category=menu?name=<?php echo strtolower($pastry->name) ?>">
+                                    <?php echo $pastry->name ?>
+                                </a>
                                 <p>PHP <?php echo $pastry->price ?></p>
                             </div>
                         </div>

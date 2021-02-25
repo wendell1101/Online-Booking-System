@@ -51,4 +51,20 @@ class Products extends Connection
         $desserts = $stmt->fetchAll();
         return $desserts;
     }
+
+    public function getProduct($id)
+    {
+        $sql = "SELECT * FROM products WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
+
+    public function getRandomSimilarProducts($category_id)
+    {
+        $sql = "SELECT * FROM products WHERE category_id=:category_id order by rand() limit 4";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['category_id' => $category_id]);
+        return $stmt->fetchAll();
+    }
 }
