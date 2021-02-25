@@ -11,7 +11,7 @@ class AdminUser extends Connection
 
     public function index()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users ORDER BY is_admin=1 DESC, is_product_manager=1 DESC, created_at";
         $stmt = $this->conn->query($sql);
         $stmt->execute();
         return $users = $stmt->fetchAll();

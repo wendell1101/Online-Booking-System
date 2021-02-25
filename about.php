@@ -1,7 +1,7 @@
 <?php
 require "path.php";
 require_once BASE . '/app/core.php';
-require_once BASE . '/app/middlewares/Auth.php';
+
 
 $reservation = new Reservation();
 $errors = [];
