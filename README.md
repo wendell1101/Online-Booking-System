@@ -3,7 +3,7 @@
 *Demo Link: https://coffeeroyale1.000webhostapp.com/* <br />
 (Email verification and notification are temporary disabled in production)
 
-**Quick Features**
+**Quick Features** (Main Branch)
 * Authentication with Email Verification
 * Reservation functionality with Email Notification
 * Categorized menus/products
