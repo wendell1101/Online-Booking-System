@@ -38,7 +38,9 @@ if (isset($_POST['reserve'])) {
                         <div class="col-lg-3 col-md-4 col-sm-6 p-2">
                             <div class="border p-1 product-img" style="min-height: 300px">
                                 <div class="img-container">
-                                    <img src="<?php echo  'assets/img/product_images/' . $drink->image ?>" class="img-fluid" alt="image" width="100%">
+                                    <a href="product_detail.php?id=<?php echo $drink->id ?>?category=menu?name=<?php echo strtolower($drink->name) ?>">
+                                        <img src="<?php echo  'assets/img/product_images/' . $drink->image ?>" class="img-fluid" alt="image" width="100%">
+                                    </a>
                                 </div>
                                 <a href="product_detail.php?id=<?php echo $drink->id ?>?category=menu?name=<?php echo strtolower($drink->name) ?>">
                                     <?php echo $drink->name ?>

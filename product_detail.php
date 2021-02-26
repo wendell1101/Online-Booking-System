@@ -10,7 +10,7 @@ $id;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $activeProduct = $product->getProduct($id);
-    $products = $product->getRandomSimilarProducts($activeProduct->category_id);
+    $products = $product->getRandomSimilarProducts($activeProduct->id, $activeProduct->category_id);
 }
 
 if (isset($_POST['reserve'])) {

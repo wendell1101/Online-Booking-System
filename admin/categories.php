@@ -37,7 +37,7 @@ $categories = $activeCategory->index();
                             <?php foreach ($categories as $key => $category) : ?>
                                 <tr>
                                     <th scope="row"><?php echo $key + 1 ?></th>
-                                    <td><a href="category_detail.php?slug=<?php echo $category->slug ?>"><?php echo $category->name ?></a></td>
+                                    <td><a href="category_detail.php?id=<?php echo $category->id ?>"><?php echo $category->name ?></a></td>
                                     <td><?php echo $activeCategory->getProductInCategoryCount($category->id) ?></td>
                                     <td class="d-flex">
 

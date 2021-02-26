@@ -60,11 +60,11 @@ class Products extends Connection
         return $stmt->fetch();
     }
 
-    public function getRandomSimilarProducts($category_id)
+    public function getRandomSimilarProducts($product_id, $category_id)
     {
-        $sql = "SELECT * FROM products WHERE category_id=:category_id order by rand() limit 4";
+        $sql = "SELECT * FROM products WHERE id<>:product_id AND category_id=:category_id order by rand() limit 4";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['category_id' => $category_id]);
+        $stmt->execute(['product_id' => $product_id, 'category_id' => $category_id]);
         return $stmt->fetchAll();
     }
 }

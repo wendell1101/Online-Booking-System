@@ -188,6 +188,19 @@
     width: 400px;
     text-align: center;
   }
+  .menu-nav {
+    .container {
+      ul {
+        li {
+          a {
+            color: $primaryColor3;
+            text-decoration: none;
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 400px) {
   .about2-title {

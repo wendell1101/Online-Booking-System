@@ -646,6 +646,16 @@ footer .logo {
   }
 }
 
+@media (max-width: 500px) {
+  .menu {
+    background: #503d35;
+  }
+  .menu .text-title {
+    color: #fff;
+    border-color: black;
+  }
+}
+
 @media (max-width: 400px) {
   .hero-right h1 {
     font-size: 40px;
@@ -662,6 +672,9 @@ footer .logo {
     font-size: 1.4rem;
     width: 250px;
     text-align: center;
+  }
+  .login-text {
+    font-size: 1.2rem !important;
   }
 }
 /*# sourceMappingURL=main.css.map */

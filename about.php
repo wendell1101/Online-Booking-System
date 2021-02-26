@@ -77,12 +77,12 @@ if (isset($_POST['reserve'])) {
         </p>
     </div>
 
-    <div class="reservation">
+    <div class="reservation" id="reservation-form">
         <div class="container">
             <h1 class="text-title">Reserve a Table</h1>
             <div class="row p-2">
                 <div class="col-md-6 mx-auto border reservation-form p-3">
-                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>#reservation-form" method="POST">
                         <div class="form-group">
                             <label for="date_time">Choose your desired date and time</label>
                             <input type="text" name="date_time" id="date_time" class="form-control

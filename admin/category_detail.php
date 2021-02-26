@@ -9,8 +9,8 @@ $auth->restrict();
 require_once BASE . '/app/middlewares/CheckIfAdminOrProductManager.php';
 
 $category = new Category();
-if (isset($_GET['slug'])) {
-    $activeCategory = $category->getCategory($_GET['slug']);
+if (isset($_GET['id'])) {
+    $activeCategory = $category->getCategory($_GET['id']);
     $products = $category->getProductInCategory($activeCategory->id);
 } else {
     redirect('categories.php');
