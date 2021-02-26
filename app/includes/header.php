@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo TITLE ?></title>
+    <link rel="icon" href="assets/img/logo2_light.png" type="image/gif" sizes="16x16">
     <!--fontawesome5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!--bootstrap-->
@@ -124,3 +125,5 @@
     </ul>
     <!--Back to top button-->
     <a id="button"><i class="fas fa-arrow-up arrow"></i></a>
+    <div class="loader"></div>
+    <!-- <div class="se-pre-con"></div> -->

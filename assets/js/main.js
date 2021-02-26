@@ -5,6 +5,11 @@ const navbar = document.querySelector("#nav");
 const logoDark = document.querySelector("#logo");
 let currentUrl = window.location.href;
 
+// loader
+$(window).load(function () {
+  $(".loader").fadeOut("slow");
+});
+// hamburger menu
 hamburger.addEventListener("click", () => {
   wrapper.classList.toggle("active");
   sideNav.classList.toggle("active");
@@ -15,7 +20,6 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-//jquery
 // back to top button
 let btn = $("#button");
 
