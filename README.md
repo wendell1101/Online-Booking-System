@@ -1,5 +1,8 @@
 # Online-Booking-System
 
+Demo Link: https://coffeeroyale1.000webhostapp.com/
+(Email verification and notification are temporary disabled in production)
+
 **Quick Features**
 * Authentication with Email Verification
 * Reservation functionality with Email Notification
