@@ -14,4 +14,5 @@ How to use:
 2. run composer install
 3. import the sql file
 4. move the entire folder to htdocs
-5. open the browser and view the project
+5. rename the entire folder to online-booking-system
+6. open the browser and view the project
