@@ -1,7 +1,6 @@
 # Online-Booking-System
 
 *Demo Link: https://coffeeroyale1.000webhostapp.com/* <br />
-admin acc: admin@gmail.com pass: admin ,admin2@gmail.com pass: admin, admin3@gmail.com pass: admin (to be deleted later) <br />
 (Email verification and notification are temporary disabled in production)
 
 **Quick Features** (Main Branch)
