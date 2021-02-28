@@ -168,7 +168,7 @@ class UserController extends Connection
         } else {
             $token = bin2hex(random_bytes(7));
             // register user using named params
-            $sql = "INSERT INTO users (firstname, lastname, email, password, token) VALUES (:firstname, :lastname, :email, :password, :token)";
+            $sql = "INSERT INTO users (firstname, lastname, email, password, token, active) VALUES (:firstname, :lastname, :email, :password, :token, 1)";
             $stmt = $this->conn->prepare($sql);
             // hash the password before saving to the database
             $password = md5($this->data['password1']);
@@ -183,7 +183,9 @@ class UserController extends Connection
             ]);
             $lastId = $this->conn->lastInsertId();
             if ($run) {
-                $this->send_mail($this->data['email'], $token, $lastId);
+                // $this->send_mail($this->data['email'], $token, $lastId);
+                $_SESSION['id'] = $lastId;
+                redirect('index.php');
             }
         }
     }
