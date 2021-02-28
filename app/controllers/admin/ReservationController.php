@@ -163,13 +163,15 @@ class AdminReservation extends Connection
         $user = $this->getUser($reservation->user_id);
 
         if ($updated) {
-            if ($reservation->status !== 'pending') {
-                $date = $this->formatDate($reservation->date_time);
-                $this->send_mail($user, $reservation, $date);
-            } else {
-                message('success', 'A reservation has been updated');
-                redirect('reservations.php');
-            }
+            message('success', 'A reservation has been updated');
+            redirect('reservations.php');
+            // if ($reservation->status !== 'pending') {
+            //     $date = $this->formatDate($reservation->date_time);
+            //     $this->send_mail($user, $reservation, $date);
+            // } else {
+            //     message('success', 'A reservation has been updated');
+            //     redirect('reservations.php');
+            // }
         }
     }
     private function formatDate($date)
