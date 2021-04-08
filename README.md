@@ -15,3 +15,7 @@ How to use:
 4. move the entire folder to htdocs
 5. rename the entire folder to online-booking-system
 6. open the browser and view the project
+
+## License
+
+The Online-Booking System is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
